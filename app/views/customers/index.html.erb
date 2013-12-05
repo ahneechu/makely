@@ -1,5 +1,31 @@
-joelee
-joelee@example.com
 
 Customer created!
+
+<h1>Listing customers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Hashed password</th>
+      <th>Salt</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @customers.each do |customer| %>
+      <tr>
+        <td><%= customer.customer_email %></td>
+        <td><%= customer.customer_hashed_password %></td>
+        <td><%= customer.customer_salt %></td>
+        <td><%= link_to 'Show', customer %></td>
+        <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
+        <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
