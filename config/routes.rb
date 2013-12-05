@@ -6,6 +6,7 @@ Makely::Application.routes.draw do
   # root 'welcome#index'
   resources :sellers
   resources :stores
+  resources :customers
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

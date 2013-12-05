@@ -11,10 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131204200832) do
+ActiveRecord::Schema.define(version: 20131205044852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "customers", force: true do |t|
+    t.string   "customer_username"
+    t.string   "customer_email"
+    t.string   "customer_hashed_password"
+    t.string   "customer_salt"
+    t.string   "customer_name"
+    t.string   "customer_address"
+    t.string   "customer_city"
+    t.string   "customer_state"
+    t.integer  "customer_zipcode"
+    t.string   "customer_phone"
+    t.string   "CC_number"
+    t.string   "CC_name"
+    t.string   "security"
+    t.string   "code"
+    t.string   "CC_expiration_date"
+    t.string   "customer_shipping_address"
+    t.string   "customer_shipping_city"
+    t.string   "customer_shipping_state"
+    t.integer  "customer_shipping_zipcode"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "sellers", force: true do |t|
     t.string   "seller_username"
