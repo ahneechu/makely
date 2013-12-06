@@ -14,6 +14,8 @@ class ProductsController < ApplicationController
 
   # GET /products/new
   def new
+    @store = Store.find(params[:store_id])
+    
     @product = Product.new
   end
 
@@ -70,6 +72,6 @@ class ProductsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
       # params[:product]
-      params.require(:product).permit(:product_name, :product_description, :product_image, :product_price)
+      params.require(:product).permit(:product_name, :product_description, :product_image, :product_price, :store_id, :category_id)
     end
 end

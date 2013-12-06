@@ -1,19 +1,24 @@
 <h1>Create a New Store!</h1>
 
-<%= form_for Store.new do |f| %>
+<%= render 'form' %>
 
-	<%= f.label :store_name %>
-	<%= f.text_field :store_name, id:"store_name" %>
+<%= link_to 'Back', stores_path %>
 
-	<%= f.label :store_description %>
-	<%= f.text_field :store_description, id:"store_description" %>
 
-	<%= f.label :store_image %>
-	<%= f.text_field :store_image, id:"store_image" %>
+<%# form_for Store.new do |f| %>
 
-	<!-- how to populate cause dropdown -->
-	<%=collection_select(:store, :cause_id, Cause.all, :id, :cause_name, prompt: 'Please select a cause') %>
+	<%# f.label :store_name %>
+	<%# f.text_field :store_name, id:"store_name" %>
 
-	<%= f.submit :save %>
+	<%# f.label :store_description %>
+	<%# f.text_field :store_description, id:"store_description" %>
 
-<% end %>
+	<%# f.label :store_image %>
+	<%# f.text_field :store_image, id:"store_image" %>
+
+	
+	<%#collection_select(:store, :cause_id, Cause.all, :id, :cause_name, prompt: 'Please select a cause') %>
+
+	<%# f.submit :save %>
+
+<%#end %>

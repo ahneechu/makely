@@ -1,16 +1,25 @@
-<%= form_for @seller do |f| %>
-	<%= f.label :seller_username %>
-	<%= f.text_field :seller_username, id:"seller_username" %>
+<h1>New Seller</h1>
 
-	<%= f.label :email %>
-	<%= f.text_field :email, id:"email" %>
+<%= render 'form' %>
 
-	<%= f.label :password %>
-	<%= f.password_field :password, id:"password" %>
+<%= link_to 'Back', sellers_path %>
 
-	<%= f.label :password_confirmation %>
-	<%= f.password_field :password_confirmation, id:"password_confirmation" %>
 
-	<%= f.submit :save %>
 
-<% end %>
+
+<%# form_for @seller do |f| %>
+	<%# f.label :seller_username %>
+	<%# f.text_field :seller_username, id:"seller_username" %>
+
+	<%# f.label :email %>
+	<%# f.text_field :email, id:"email" %>
+
+	<%# f.label :password %>
+	<%# f.password_field :password, id:"password" %>
+
+	<%# f.label :password_confirmation %>
+	<%# f.password_field :password_confirmation, id:"password_confirmation" %>
+
+	<%# f.submit :save %>
+
+<%#end %>

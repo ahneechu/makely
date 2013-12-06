@@ -1,6 +1,17 @@
-<h1>Create a New Store!</h1>
+<%= form_for(@store) do |f| %>
+  <% if @store.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@store.errors.count, "error") %> prohibited this product from being saved:</h2>
 
-<%= form_for Store.new do |f| %>
+      <ul>
+      <% @store.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
 
 	<%= f.label :store_name %>
 	<%= f.text_field :store_name, id:"store_name" %>
@@ -11,9 +22,10 @@
 	<%= f.label :store_image %>
 	<%= f.text_field :store_image, id:"store_image" %>
 
-	<!-- how to populate cause dropdown -->
 	<%=collection_select(:store, :cause_id, Cause.all, :id, :cause_name, prompt: 'Please select a cause') %>
 
 	<%= f.submit :save %>
 
+</div>
 <% end %>
+

@@ -1,4 +1,6 @@
 class Store < ActiveRecord::Base
-  has_many :sellers
   belongs_to :cause
+  has_many :sellers
+  has_many :orders
+  
 end

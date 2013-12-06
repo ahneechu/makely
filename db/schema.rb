@@ -11,10 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131206010630) do
+ActiveRecord::Schema.define(version: 20131206033030) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: true do |t|
+    t.string   "category_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "causes", force: true do |t|
     t.string   "cause_name"
@@ -30,13 +36,13 @@ ActiveRecord::Schema.define(version: 20131206010630) do
     t.integer  "product_quantity"
     t.integer  "product_avail_inventory"
     t.decimal  "product_total_cost"
-    t.integer  "cateogry_id"
+    t.integer  "category_id"
     t.integer  "store_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "products", ["cateogry_id"], name: "index_products_on_cateogry_id", using: :btree
+  add_index "products", ["category_id"], name: "index_products_on_category_id", using: :btree
   add_index "products", ["store_id"], name: "index_products_on_store_id", using: :btree
 
   create_table "sellers", force: true do |t|
