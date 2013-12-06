@@ -4,20 +4,31 @@ class SellersController < ApplicationController
 	end
 
 	def show
+		@seller = Seller.find(params[:id])
 	end
 
 	def create
-		@seller = Seller.new(params.require(:seller).permit(:seller_username, :email, :password, :password_confirmation))
+		@seller = Seller.new(seller_params)
 		
 		if @seller.save
-			redirect_to new_store_path
-		end
+			flash[:notice] = "Seller created!"
+			redirect_to @seller
+			# else
+		# 	flash[:notice] = "Error.  Please resubmit"
+		# 	redirect_to new_seller_path
+    	end
 
 		# seller = Seller.find_by(seller_username: params[:seller][:seller_username])
 	 # 	if seller.authenticate(params[:seller][:password])
-  #       session[:seller_id] = seller.id
-  #       redirect_to new_stores_path
-  #   	end
-
+	 #        session[:seller_id] = seller.id
+	 #        flash[:notice] = "Seller created!"
+	 #        redirect_to @seller
 	end
+
+
+private
+
+	def seller_params
+      	params.require(:seller).permit(:seller_username, :email, :password, :password_confirmation)
+    end
 end

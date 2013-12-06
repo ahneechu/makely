@@ -33,10 +33,12 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = false
   
   config.before(:suite) do
+    # this deletes everything
     DatabaseCleaner.clean_with(:truncation)
   end
 
   config.before(:each) do
+    # deletes and hides everything
     DatabaseCleaner.strategy = :transaction
   end
 

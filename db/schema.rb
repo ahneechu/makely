@@ -11,10 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131204200832) do
+ActiveRecord::Schema.define(version: 20131206010630) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "causes", force: true do |t|
+    t.string   "cause_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "products", force: true do |t|
+    t.string   "product_name"
+    t.string   "product_description"
+    t.string   "product_image"
+    t.decimal  "product_price"
+    t.integer  "product_quantity"
+    t.integer  "product_avail_inventory"
+    t.decimal  "product_total_cost"
+    t.integer  "cateogry_id"
+    t.integer  "store_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "products", ["cateogry_id"], name: "index_products_on_cateogry_id", using: :btree
+  add_index "products", ["store_id"], name: "index_products_on_store_id", using: :btree
 
   create_table "sellers", force: true do |t|
     t.string   "seller_username"
@@ -23,6 +46,20 @@ ActiveRecord::Schema.define(version: 20131204200832) do
     t.string   "hashed_password"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "store_id"
   end
+
+  add_index "sellers", ["store_id"], name: "index_sellers_on_store_id", using: :btree
+
+  create_table "stores", force: true do |t|
+    t.string   "store_name"
+    t.string   "store_description"
+    t.string   "store_image"
+    t.integer  "cause_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "stores", ["cause_id"], name: "index_stores_on_cause_id", using: :btree
 
 end

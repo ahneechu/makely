@@ -1,4 +1,4 @@
-<%= form_for Seller.new do |f| %>
+<%= form_for @seller do |f| %>
 	<%= f.label :seller_username %>
 	<%= f.text_field :seller_username, id:"seller_username" %>
 
@@ -6,10 +6,10 @@
 	<%= f.text_field :email, id:"email" %>
 
 	<%= f.label :password %>
-	<%= f.text_field :password, id:"password" %>
+	<%= f.password_field :password, id:"password" %>
 
 	<%= f.label :password_confirmation %>
-	<%= f.text_field :password_confirmation, id:"password_confirmation" %>
+	<%= f.password_field :password_confirmation, id:"password_confirmation" %>
 
 	<%= f.submit :save %>
 

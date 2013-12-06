@@ -1,0 +1,9 @@
+<h1>Welcome Store!</h1>
+
+<%= @store.store_name %></br>
+<%= @store.store_description %></br>
+<%# @store.cause_name %></br>
+
+<%= link_to 'Edit', edit_store_path(@store) %> 
+<%# link_to "Edit", {method: :get} %>
+<%= link_to new_product_path, { controller: "products", action: "new"}, {method: :get} %>

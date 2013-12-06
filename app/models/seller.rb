@@ -1,6 +1,7 @@
 require 'bcrypt'
 
 class Seller < ActiveRecord::Base
+	belongs_to :store
 	attr_accessor :password, :password_confirmation
 
 	before_save :hash_password

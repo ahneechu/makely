@@ -5,3 +5,12 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Cause.destroy_all
+
+cw = Cause.create(cause_name: 'Women')
+cc = Cause.create(cause_name: 'Children')
+ced = Cause.create(cause_name: 'Education')
+cj = Cause.create(cause_name: 'Job Creation')
+ch = Cause.create(cause_name: 'Health')
+cen = Cause.create(cause_name: 'Environment')
+cd = Cause.create(cause_name: 'Disaster Relief')

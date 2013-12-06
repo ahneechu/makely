@@ -1,0 +1,8 @@
+<h1>Welcome!</h1>
+
+<%= @seller.seller_username %></br>
+<%= @seller.email %></br>
+
+
+<%= link_to "Edit", {method: :get} %>
+<%= link_to new_store_path, { controller: "stores", action: "new"}, {method: :get} %>
