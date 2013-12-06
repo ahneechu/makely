@@ -1,0 +1,27 @@
+
+<h1>Listing Orders</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Order</th>
+     <!--  <th>Hashed password</th>
+      <th>Salt</th> -->
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% [@customer, @orders].each do |order| %>
+      <tr>
+        <td><%= order.order_number %></td>
+        <td><%= order.ordered_date %></td>
+        <td><%= link_to 'Show', customer_order_path(order) %></td>
+        <td><%= link_to 'Edit', edit_customer_order_path(order) %></td>
+        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

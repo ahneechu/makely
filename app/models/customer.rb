@@ -2,7 +2,7 @@ require 'bcrypt'
 
 class Customer < ActiveRecord::Base
 
-	# has_many :orders
+	has_many :orders
 
 	attr_accessor :customer_password, :password_confirmation
 

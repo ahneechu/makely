@@ -1,0 +1,9 @@
+<%= form_for [@customer, @order] do |f| %>
+	<%= f.label :order_number %>
+	<%= f.text_field :order_number, id:"order_number" %>
+
+	<%= f.label :ordered_date %>
+	<%= f.text_field :ordered_date, id:"ordered_date" %>
+	<%= f.submit :save %>
+
+<% end %>
