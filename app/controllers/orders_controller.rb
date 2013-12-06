@@ -29,6 +29,7 @@ before_action :set_order, only: [:show, :edit, :update, :destroy]
 
 		if @order.save
 			redirect_to customer_orders_url
+			# redirect_to customers_url
 		end
 
 	end
