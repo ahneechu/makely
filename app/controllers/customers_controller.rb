@@ -1,4 +1,7 @@
 class CustomersController < ApplicationController
+
+before_action :set_customer, only: [:show, :edit, :update, :destroy]
+
 	def new
 		@customer = Customer.new
 	end
@@ -14,7 +17,7 @@ class CustomersController < ApplicationController
 	end
 
 	def create
-		@customer = Customer.new(params.require(:customer).permit(:customer_username, :customer_email, :customer_hashed_password, :password_confirmation))
+		@customer = Customer.new(params.require(:customer).permit(:customer_username, :customer_email, :customer_password, :password_confirmation))
 		
 		if @customer.save
 			redirect_to customers_url
@@ -28,10 +31,13 @@ class CustomersController < ApplicationController
 
 	  	def update
 	  		@customer.update(customer_user_params)
+	  		redirect_to customers_url
 	  	end
 
 	  	 def destroy
-    		@customer.destroy
+	  	 	Customer.find(params[:id]).destroy
+    		# @customer.destroy
+    		redirect_to customers_url
   		end
 
 
@@ -47,7 +53,7 @@ private
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def customer_user_params
-      params.require(:customer_user).permit(:customer_email, :customer_hashed_password, :password_confirmation)
+      params.require(:customer).permit(:customer_email, :customer_hashed_password, :password_confirmation)
 
     end
 

@@ -4,7 +4,7 @@ class Customer < ActiveRecord::Base
 
 	# has_many :orders
 
-	attr_accessor :customer_hashed_password, :password_confirmation
+	attr_accessor :customer_password, :password_confirmation
 
 	before_save :hash_password
 	validate :customer_username
@@ -20,11 +20,11 @@ class Customer < ActiveRecord::Base
 
 	private
 	def hash_password
-		if customer_hashed_password.present?
+		if customer_password.present?
 			self.customer_salt = BCrypt::Engine.generate_salt
 			self.customer_hashed_password = 
-			BCrypt::Engine.hash_secret(customer_hashed_password, self.customer_salt)
-			customer_hashed_password = password_confirmation = nil
+			BCrypt::Engine.hash_secret(customer_password, self.customer_salt)
+			customer_password = password_confirmation = nil
 		end
 	end
 end
