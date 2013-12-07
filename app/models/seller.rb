@@ -4,10 +4,13 @@ class Seller < ActiveRecord::Base
 	attr_accessor :password, :password_confirmation
 
 	before_save :hash_password
-	validate :seller_username
-	validate :email, presence: true
-	validate :email, uniqueness: { case_sensitive: false }
-	validate :password, confirmation: true
+	validates :seller_username, presence: true
+	validates :seller_username, uniqueness: { case_sensitive: false }
+	validates :email, presence: true
+	validates :email, uniqueness: { case_sensitive: false }
+	# check to see if password and password_confirmation is validating correctly
+	validates :password, confirmation: true
+	validates :password_confirmation, confirmation: true
 
 	def authenticate(password)
 		self.hashed_password ==

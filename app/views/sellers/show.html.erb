@@ -1,10 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Welcome!</h1>
+<h1>Welcome <%= @seller.seller_username %>!</h1>
 
-<%= @seller.seller_username %></br>
-<%= @seller.email %></br>
+<div>
+<h3>Please check your seller info to ensure everything looks good!</h3>
+
+<h4>Name</h4>
+<p><%= @seller.seller_username %></p>
+
+<h4>Email</h4>
+<p><%= @seller.email %></p>
+</br>
+</br>
+</br>
 
 
-<%= link_to 'Edit', edit_seller_path(@seller) %> |
-<%= link_to new_store_path, { controller: "stores", action: "new"}, {method: :get} %>
+<%= link_to 'Edit', edit_seller_path(@seller), class: 'btn btn-default' %> |
+<%= link_to 'Create a Store', new_store_path, class: 'btn btn-default' %>
+
+<%# link_to new_store_path, { controller: "stores", action: "new"}, {method: :get} %>
+
+</div>

@@ -4,12 +4,14 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    @store = Store.find(params[:store_id])
+    @products = @store.products
   end
 
   # GET /products/1
   # GET /products/1.json
   def show
+    @store = Store.find(params[:store_id])
   end
 
   # GET /products/new
@@ -21,6 +23,10 @@ class ProductsController < ApplicationController
 
   # GET /products/1/edit
   def edit
+    #1st you retrieve the store 
+    @store = Store.find(params[:store_id])
+    #2nd you retrieve the product.  This is def set_product
+    # @product = Products.find(params[:id])
   end
 
   # POST /products
@@ -30,7 +36,7 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.save
-        format.html { redirect_to @product, notice: 'Product was successfully created.' }
+        format.html { redirect_to action: 'show', id: @product, notice: 'Product was successfully created.' }
         format.json { render action: 'show', status: :created, location: @product }
       else
         format.html { render action: 'new' }

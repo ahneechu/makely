@@ -1,32 +1,52 @@
-<%= form_for(@seller) do |f| %>
-  <% if @seller.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@seller.errors.count, "error") %> prohibited this product from being saved:</h2>
+<div class="row">
+  <div class="col-sm-6">
+    <div class ="errors">
+     
+      <%= form_for @seller, html: {role: "form"} do |f| %>
+        <% if @seller.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@seller.errors.count, "error") %> prohibited this product from being saved:</h2>
 
-      <ul>
-      <% @seller.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+            <ul>
+            <% @seller.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="actions">
+          <div class="form-group">
+        	<%= f.label :seller_username %></br>
+        	<%= f.text_field :seller_username, id:"seller_username", class: 'form-control' %>
+          <%= @seller.errors[:seller_username].join(", ") %>
+          </div>
+
+          <div class="form-group">
+        	<%= f.label :email %></br>
+        	<%= f.text_field :email, id:"email", class: 'form-control' %>
+          <%= @seller.errors[:email].join(", ") %>
+          </div>
+
+          <div class="form-group">
+        	<%= f.label :password %></br>
+        	<%= f.password_field :password, id:"password", class: 'form-control' %>
+          <%= @seller.errors[:password].join(", ") %>
+          </div>
+          
+          <div class="form-group">
+        	<%= f.label :password_confirmation %></br>
+        	<%= f.password_field :password_confirmation, id:"password_confirmation", class: 'form-control' %>
+          <%= @seller.errors[:password_confirmation].join(", ") %>
+          </div>
+
+          <div>
+        	<%= f.submit :save, class: 'btn btn-default' %>
+          </div>
+      </div>
       <% end %>
-      </ul>
+
+      </div>
     </div>
-  <% end %>
-
-  <div class="actions">
-
-	<%= f.label :seller_username %>
-	<%= f.text_field :seller_username, id:"seller_username" %>
-
-	<%= f.label :email %>
-	<%= f.text_field :email, id:"email" %>
-
-	<%= f.label :password %>
-	<%= f.password_field :password, id:"password" %>
-
-	<%= f.label :password_confirmation %>
-	<%= f.password_field :password_confirmation, id:"password_confirmation" %>
-
-	<%= f.submit :save %>
-
 </div>
-<% end %>
 

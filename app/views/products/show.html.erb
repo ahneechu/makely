@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
+<h1>Product Show Page</h1>
+
+<%= @product.product_name %></br>
+<%= @product.product_description %></br>
 
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+
+<%= link_to 'Edit', edit_store_product_path %> |
+<%= link_to 'Back', store_products_path %>

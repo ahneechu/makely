@@ -7,5 +7,7 @@
 <%# @store.cause_name %></br>
 
 <%= link_to 'Edit', edit_store_path(@store) %> 
-<%# link_to "Edit", {method: :get} %>
-<%= link_to new_product_path, { controller: "products", action: "new"}, {method: :get} %>
+
+<!-- this link redirects to /stores/:store_id/products/new -->
+<%= link_to 'Create a product', new_store_product_path(@store.id) %>
+

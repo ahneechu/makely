@@ -1,10 +1,10 @@
 <h1>Listing sellers</h1>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
-      <th></th>
-      <th></th>
+      <th colspan="2">Seller Name</th>
+      <th>Seller Email</th>
       <th></th>
     </tr>
   </thead>
@@ -13,8 +13,10 @@
     <% @sellers.each do |seller| %>
 
       <tr>
-        <td><%= seller.seller_username %></td>
+        <td colspan="2"><%= seller.seller_username %></td>
+        <!-- <td></td><td></td><td></td><td></td><td></td> -->
         <td><%= seller.email %></td>
+        <!-- <td></td><td></td><td></td><td></td><td></td> -->
         <td><%= link_to 'Show', seller %></td>
         <td><%= link_to 'Edit', edit_seller_path(seller) %></td>
         <td><%= link_to 'Destroy', seller, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -25,4 +27,4 @@
 
 <br>
 
-<%= link_to 'New seller', new_seller_path %>
+<%= link_to 'New seller', new_seller_path, class: 'btn btn-default' %>

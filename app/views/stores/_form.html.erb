@@ -1,31 +1,52 @@
-<%= form_for(@store) do |f| %>
-  <% if @store.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@store.errors.count, "error") %> prohibited this product from being saved:</h2>
+<div class="row">
+  <div class="col-sm-6">
+    <div class ="errors">
 
-      <ul>
-      <% @store.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+      <%= form_for @store, html: {role: "form"} do |f| %>
+        <% if @store.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@store.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+            <ul>
+            <% @store.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+    <div class="actions">
+
+      <div class="form-group">
+      <%=collection_select(:store, :cause_id, Cause.all, :id, :cause_name, prompt: 'Please select a cause') %>
+      </div>
+
+      <div class="form-group">
+    	<%= f.label :store_name %></br>
+    	<%= f.text_field :store_name, id:"store_name", class: 'form-control' %>
+      <%= @store.errors[:store_username].join(", ") %>
+      </div>
+
+      <div class="form-group">
+    	<%= f.label :store_description %></br>
+    	<%= f.text_area :store_description, rows: 8, id:"store_description", class: 'form-control'  %>
+      <%= @store.errors[:store_description].join(", ") %>
+      </div>
+
+      <div class="form-group">
+    	<%= f.label :store_image %></br>
+    	<%= f.text_field :store_image, id:"store_image", class: 'form-control' %>
+      <%= @store.errors[:store_image].join(", ") %>
+      </div>
+
+      <div>
+    	<%= f.submit :save, class: 'btn btn-default' %>
+      </div>
+
     </div>
-  <% end %>
+    <% end %>
 
-  <div class="actions">
-
-	<%= f.label :store_name %>
-	<%= f.text_field :store_name, id:"store_name" %>
-
-	<%= f.label :store_description %>
-	<%= f.text_field :store_description, id:"store_description" %>
-
-	<%= f.label :store_image %>
-	<%= f.text_field :store_image, id:"store_image" %>
-
-	<%=collection_select(:store, :cause_id, Cause.all, :id, :cause_name, prompt: 'Please select a cause') %>
-
-	<%= f.submit :save %>
-
+     </div>
+   </div>
 </div>
-<% end %>
 
