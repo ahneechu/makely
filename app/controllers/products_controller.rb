@@ -1,46 +1,40 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
-  # GET /products
-  # GET /products.json
+  # GET /store/:store_id/products
+  # GET /store/:store_id/products.json
   def index
-    @store = Store.find(params[:store_id])
-    @products = @store.products
+    store = Store.find(params[:store_id])
+    @products = store.products
   end
 
-  # GET /products/1
-  # GET /products/1.json
+  # GET /store/:store_id/products/1
+  # GET /store/:store_id/products/1.json
   def show
-    @store = Store.find(params[:store_id])
+    
   end
 
-  # GET /products/new
+  # GET /store/:store_id/products/new
   def new
     store = Store.find(params[:store_id])
     @product = store.products.build
     # @product = Product.new
   end
 
-  # GET /products/1/edit
+  # GET /store/:store_id/products/1/edit
   def edit
-    #1st you retrieve the store 
-    @store = Store.find(params[:store_id])
-    #2nd you retrieve the product.  This is def set_product
-    # @product = Products.find(params[:id])
+    
   end
 
-  # POST /products
-  # POST /products.json
+  # POST /store/:store_id/products
+  # POST /store/:store_id/products.json
   def create
     store = Store.find(params[:store_id])
     @product = store.products.create(product_params)
-    # @product = Product.new(product_params)
 
     respond_to do |format|
       if @product.save
-        # redirect_to store_product_url(@store, @product)
         format.html { redirect_to([@product.store, @product], notice: 'Product was successfully created.') }
-        # format.html { redirect_to action: 'show', id: @product, notice: 'Product was successfully created.' }
         format.json { render action: 'show', status: :created, location: @product }
       else
         format.html { render action: 'new' }
@@ -49,12 +43,12 @@ class ProductsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /products/1
-  # PATCH/PUT /products/1.json
+  # PATCH/PUT /store/:store_id/products/1
+  # PATCH/PUT /store/:store_id/products/1.json
   def update
     respond_to do |format|
-      if @product.update(product_params)
-        format.html { redirect_to @product, notice: 'Product was successfully updated.' }
+      if @product.update_attributes(product_params)
+        format.html { redirect_to([@product.store, @product], notice: 'Product was successfully updated.') }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -63,12 +57,12 @@ class ProductsController < ApplicationController
     end
   end
 
-  # DELETE /products/1
-  # DELETE /products/1.json
+  # DELETE /store/:store_id/products/1
+  # DELETE /store/:store_id/products/1.json
   def destroy
     @product.destroy
     respond_to do |format|
-      format.html { redirect_to products_url }
+      format.html { redirect_to store_products_url }
       format.json { head :no_content }
     end
   end
@@ -76,7 +70,10 @@ class ProductsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product
-      @product = Product.find(params[:id])
+      #1st you retrieve the store 
+      store = Store.find(params[:store_id])
+      #2nd you retrieve the product.  
+      @product = store.products.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
