@@ -13,22 +13,30 @@ before_action :set_order, only: [:show, :edit, :update, :destroy]
 	def index
 		@customer = Customer.find(params[:customer_id])
 		# @orders = Order.all
-		@orders = current_customer_user.orders
+		# @orders = customer.order.all
+		@orders = @customer.orders
+		# @orders = current_customer_user.orders
+		# @orders = Customer.find_by(customer_id: params[:customer_id])
+		# @orders = @customer.orders
 	end
 
 
 	def show
-		@order = Order.find(params[:id])
+		@customer = Customer.find(params[:customer_id])
 	end
 
 
 	def create
 		@customer = Customer.find(params[:customer_id])
-		@order = Order.new(params.require(:order).permit(order_params))
+		# @order = Order.new(params.require(:order).permit(order_params))
+		@order = Order.new(params[:order].permit(:order_number, :ordered_date, :pending_date, :completed_date, :cancel_date, :archived_state, :product_purchased, :customer_id, :store_id))
 				# @order = Order.new(params.require(:order).permit(:order_number, :ordered_date, :pending_date, :completed_date, :cancel_date, :archived_state, :product_purchased, :customer_id, :store_id))
 
 		if @order.save
-			redirect_to customer_orders_url
+			# redirect_to customer_order_url(@customer)
+			redirect_to customer_order_url(@customer, @order)
+			# redirect_to "/customers/5/orders"
+			# redirect_to customer_order_url
 			# redirect_to customers_url
 		end
 
