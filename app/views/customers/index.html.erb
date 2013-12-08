@@ -7,7 +7,7 @@
       <th>Email</th>
      <!--  <th>Hashed password</th>
       <th>Salt</th> -->
-      <th></th>
+      <th>Customer Number</th>
       <th></th>
       <th></th>
     </tr>
@@ -17,6 +17,7 @@
     <% @customers.each do |customer| %>
       <tr>
         <td><%= customer.customer_email %></td>
+        <td><%= customer.id %></td>
         <td><%# customer.customer_hashed_password %></td>
         <td><%# customer.customer_salt %></td>
         <td><%= link_to 'Show', customer %></td>
