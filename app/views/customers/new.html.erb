@@ -1,0 +1,17 @@
+<%= form_for Customer.new do |f| %>
+	<%= f.label :customer_username %>
+	<%= f.text_field :customer_username, id:"customer_username" %>
+
+	<%= f.label :customer_email %>
+	<%= f.text_field :customer_email, id:"customer_email" %>
+
+	<%= f.label :customer_password %>
+	<%= f.text_field :customer_password, id:"customer_password" %>
+
+	<%= f.label :password_confirmation %>
+	<%= f.text_field :password_confirmation, id:"password_confirmation" %>
+
+	<%= f.submit :save %>
+
+<% end %>
+

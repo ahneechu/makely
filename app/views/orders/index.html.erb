@@ -1,0 +1,32 @@
+
+<h1>Listing Orders</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Order</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%# @customer.each do |c| %>
+    <%# @orders.each do |order| %>
+    <%# ([@customer, @orders]).each do |order| %>
+    <%= @orders.each do |order| %>
+      <tr>
+        <td><%= order.order_number %></td>
+        <td><%= order.ordered_date %></td>
+        <td><%= link_to 'Show', [order.customer, order]  %></td>
+        <td><%= link_to 'Edit', edit_customer_order_path(order.customer, order) %></td>
+        <td><%= link_to 'Destroy', [order.customer, order] , method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+        <!-- <td><%# link_to 'Show', customer_order_path(order) %></td>
+        <td><%# link_to 'Edit', edit_customer_order_path(order) %></td>
+        <td><%# link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+      </tr>
+
+    <% end %>
+  </tbody>
+</table>
