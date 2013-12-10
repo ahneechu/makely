@@ -1,5 +1,7 @@
 class OrdersController < ApplicationController
 
+include CurrentOrder
+
 before_action :set_order, only: [:show, :edit, :update, :destroy]
 
 	def new
@@ -74,8 +76,13 @@ private
     # Use callbacks to share common setup or constraints between actions.
 
     def set_order
-    	customer = Customer.find(params[:customer_id])
-    	@order = customer.orders.find(params[:id])
+    	# customer = Customer.find(params[:customer_id])
+    	# @order = customer.orders.find(params[:id])
+
+    	#*TEST- Currently using Fictious customer 5 as a test
+    	@order = Order.find(params[:id])
+
+
       # @order = Order.find(params[:id])
           # respond_with (@orders)
 

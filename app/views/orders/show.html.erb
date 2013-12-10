@@ -1,6 +1,10 @@
 
 <h1>Order Show</h1>
 
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
 <p>
   <strong>Order Number</strong>
   <%= @order.order_number %>
@@ -10,6 +14,12 @@
   <strong>Order Date</strong>
   <%= @order.ordered_date %>
 </p>
+
+<ul>
+	<% @order.line_items.each do |item| %>
+	<li><%= item.product.product_description %></li>
+	<% end %>
+</ul>
 
 
 <%= link_to 'Back', customer_orders_path %>

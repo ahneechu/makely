@@ -15,6 +15,7 @@ Makely::Application.routes.draw do
     resources :orders
   end
 
+  resources :line_items
 
 
   # Example of regular route:
