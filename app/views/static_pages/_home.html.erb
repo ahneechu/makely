@@ -1,14 +1,7 @@
-<script type="text/javascript">
-    if ($(this).scrollTop() < 200 && $el.css('position') == 'fixed'){
-    $('.fixedElement').css({'position': 'relative', 'top': '200px'});
-}
-
-</script>
-
 <div class="jumbotron">
 </div>
 
-<nav class="navbar navbar-default fixedElement" role="navigation">
+<nav id="myElementToStick" class="navbar navbar-default" role="navigation">
   <!-- Brand and toggle get grouped for better mobile display -->
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -22,7 +15,7 @@
 
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    <ul class="nav navbar-nav mid-nav">
+    <ul class="nav navbar-nav">
       <li></li>
       <li></li>
       <li></li>
@@ -32,6 +25,29 @@
     </ul>
   </div>
 </nav>
+
+<script>
+var initTopPosition= $('#myElementToStick').offset().top;   
+$(window).scroll(function(){
+    if($(window).scrollTop() > initTopPosition - 60)
+        $('#myElementToStick').css({'position':'fixed','top':'60px', 'width':'100%'});
+    else
+        $('#myElementToStick').css({'position':'absolute','top':initTopPosition+'px'});
+});
+
+// $(document).ready(function() {  
+//   $(window).scroll(function(e){ 
+//     $el = $('.fixedElement'); 
+//     if ($(this).scrollTop() > 200 && $el.css('position') != 'fixed'){
+//       $('.fixedElement').css({'position': 'fixed', 'top': '60px'}); 
+//     }
+//     else { 
+//       $('.fixedElement').css({'position': 'absolute', 'top': '450px'}); 
+//     }
+
+//   });
+// });
+</script>
 
 	
 

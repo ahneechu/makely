@@ -18,7 +18,8 @@ Makely::Application.routes.draw do
     resources :orders
   end
 
-  root 'static_pages#home'
+  # root 'static_pages#home'
+  root 'products#all_products'
 
 
 

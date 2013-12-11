@@ -1,11 +1,11 @@
 <!-- <h1>Listing Categories</h1> -->
 
-<div id="cause_container">
+<div class="cause_container">
   <% @categories.each do |category| %>
-    <div class= "thumb_row">
+    <div class= "cause_row">
       <div class="col-xs-6 col-md-3">
         <div class="thumbnail">
-          <h3><%= link_to category.category_name, category %></h3>
+          <h3><%= link_to category.category_name, category, class: "font" %></h3>
         </div>
       </div>
     </div>
