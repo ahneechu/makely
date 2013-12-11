@@ -19,7 +19,9 @@ Makely::Application.routes.draw do
 
   resources :authentications
 
-  
+  resources :seller_authentications
+
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

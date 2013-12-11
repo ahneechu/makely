@@ -26,11 +26,21 @@
     <ul class="right">
 
         <% if current_customer_user %>
-          <li><a href="/customers/<%=current_customer_user.id %>/edit">Settings</a></li>
-          <li><%= link_to "Logout", "/authentications/:id", method: "delete" %></li>
+          <li><a href="/customers/<%=current_customer_user.id %>/edit">Customer Settings</a></li>
+          <li><%= link_to "Customer Logout", "/authentications/:id", method: "delete" %></li>
         <% else %>
-          <li><a href="/authentications/new">Login</a></li>
-          <li><a href="/customers/new">Join</a></li>
+          <li><a href="/authentications/new">Customer Login</a></li>
+          <li><a href="/customers/new">Customer Sign-up</a></li>
+        <% end %>
+        </br>
+
+
+        <% if current_user %>
+          <li><a href="/customers/<%=current_user.id %>/edit">Seller Settings</a></li>
+          <li><%= link_to "Seller Logout", "/seller_authentications/:id", method: "delete" %></li>
+        <% else %>
+          <li><a href="/seller_authentications/new">Seller Login</a></li>
+          <li><a href="/sellers/new">Seller Sign-up</a></li>
         <% end %>
 
 

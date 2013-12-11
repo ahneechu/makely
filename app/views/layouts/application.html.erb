@@ -17,10 +17,16 @@
 <%= yield %>
 
    <br/>
-    User id: <%= current_customer_user.id if current_customer_user %>
+    Customer id: <%= current_customer_user.id if current_customer_user %>
     <br/>
-    Email: <%= current_customer_user.customer_email if current_customer_user%>
+    Customer Email: <%= current_customer_user.customer_email if current_customer_user%>
     <br/>
+	<br/>
+    Seller id: <%= current_user.id if current_user %>
+    <br/>
+    Seller Email: <%= current_user.email if current_user %>
+    <br/>
+
 
 </div>
 

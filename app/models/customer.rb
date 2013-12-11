@@ -7,6 +7,7 @@ class Customer < ActiveRecord::Base
 	attr_accessor :customer_password, :password_confirmation
 
 	before_save :hash_password
+	
 	validate :customer_username
 	validate :customer_email, presence: true
 	validate :customer_email, uniqueness: { case_sensitive: false }
@@ -16,7 +17,6 @@ class Customer < ActiveRecord::Base
 	# 	self.hashed_password ==
 	# 	BCrypt::Engine.hash_secret(password, self.salt)
 	# end
-
 
 
 	def current_order
