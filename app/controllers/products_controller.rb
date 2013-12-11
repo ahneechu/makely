@@ -8,10 +8,15 @@ class ProductsController < ApplicationController
     @products = store.products
   end
 
+  def all_products
+    @products = Product.all.order(:category_id)
+  end
+
   # GET /store/:store_id/products/1
   # GET /store/:store_id/products/1.json
   def show
-    
+    # @cause = Cause.find(params[:cause_id])
+    # @category = Category.find(params[:category_id])
   end
 
   # GET /store/:store_id/products/new
@@ -70,9 +75,9 @@ class ProductsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_product
       #1st you retrieve the store 
-      store = Store.find(params[:store_id])
+      @store = Store.find(params[:store_id])
       #2nd you retrieve the product.  
-      @product = store.products.find(params[:id])
+      @product = @store.products.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

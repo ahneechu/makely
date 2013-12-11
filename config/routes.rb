@@ -6,8 +6,10 @@ Makely::Application.routes.draw do
   # root 'welcome#index'
   resources :sellers
   resources :images
+  resources :causes
+  resources :categories
 
-
+  get '/products/all' => 'products#all_products'
   resources :stores do
     resources :products
   end
@@ -15,6 +17,8 @@ Makely::Application.routes.draw do
   resources :customers do
     resources :orders
   end
+
+  root 'static_pages#home'
 
 
 

@@ -1,0 +1,39 @@
+<!-- <h1>Listing Categories</h1> -->
+
+<div id="cause_container">
+  <% @categories.each do |category| %>
+    <div class= "thumb_row">
+      <div class="col-xs-6 col-md-3">
+        <div class="thumbnail">
+          <h3><%= link_to category.category_name, category %></h3>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+<!-- <table class="table table-hover">
+  <thead>
+    <tr>
+      <th colspan="2">Categories</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%#@categories.each do |category| %>
+      <tr>
+        <td colspan="2"><%# category.category_name %></td>
+        <td><%# link_to 'Show', category %></td>
+        <td><%# link_to 'Edit', edit_category_path(category) %></td>
+        <td><%# link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <%#end %>
+  </tbody>
+</table>
+
+<br> -->
+
+<%# link_to 'New Category', new_category_path %>

@@ -1,0 +1,38 @@
+<!-- <h1>Listing Causes</h1> -->
+
+<div id="cause_container">
+  <% @causes.each do |cause| %>
+    <div class= "thumb_row">
+      <div class="col-xs-6 col-md-3">
+        <div class="thumbnail">
+          <h3><%= link_to cause.cause_name, cause %></h3>
+        </div>
+      </div>
+  <% end %>
+</div>
+
+
+<!-- <table class="table table-hover">
+  <thead>
+    <tr>
+      <th colspan="2">Cause</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%#@causes.each do |cause| %>
+      <tr>
+        <td colspan="2"><%# cause.cause_name %></td>
+        <td><%# link_to 'Show', cause %></td>
+        <td><%# link_to 'Edit', edit_cause_path(cause) %></td>
+        <td><%# link_to 'Destroy', cause, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <%#end %>
+  </tbody>
+</table>
+
+<br> -->
+
+<%# link_to 'New Cause', new_cause_path %>

@@ -1,13 +1,13 @@
 
-<h1>Listing customers</h1>
+<h1>Listing Customers</h1>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Email</th>
      <!--  <th>Hashed password</th>
       <th>Salt</th> -->
-      <th>Customer Number</th>
+      <th colspan="2">Customer Number</th>
       <th></th>
       <th></th>
     </tr>
@@ -16,7 +16,7 @@
   <tbody>
     <% @customers.each do |customer| %>
       <tr>
-        <td><%= customer.customer_email %></td>
+        <td colspan="2"><%= customer.customer_email %></td>
         <td><%= customer.id %></td>
         <td><%# customer.customer_hashed_password %></td>
         <td><%# customer.customer_salt %></td>

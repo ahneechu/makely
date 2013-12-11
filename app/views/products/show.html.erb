@@ -1,11 +1,68 @@
+<!-- <h1>Product Show Page</h1> -->
+
+<script type="text/javascript">
+	$('#myTab a').click(function (e) {
+	  e.preventDefault()
+	  $(this).tab('show')
+	})
+</script>
+
 <p id="notice"><%= notice %></p>
 
-<h1>Product Show Page</h1>
 
-<%= @product.product_name %></br>
-<%= @product.product_description %></br>
+
+<div class="product_container">
+	<div class= "product_show_row">
+		 <div class="col-xs-6 col-md-3">
+		    <div class="product_show_img">
+
+		    <h2>Product Image</h2>
+
+		    </div>
+		 </div>
+	</div>
+
+
+	<div class= "product_show_row">
+		<div class="product_show_img">
+			<h2>Store Info</h2>
+			<p><%= @store.store_name %></p>
+			<p><%= @store.store_description %></p>
+			<p><%# @cause.cause_name %></p>
+		</div>
+	</div>
+
+
+	<div class= "product_show_row">
+		<div class="product_show_img">
+
+		<!-- Nav tabs -->
+		<ul class="nav nav-tabs">
+		  <li><a href="#home" data-toggle="tab">Product Info</a></li>
+		  <li><a href="#profile" data-toggle="tab">Shipping Info</a></li>
+		</ul>
+
+		<!-- Tab panes -->
+		<div class="tab-content">
+		  <div class="tab-pane active" id="home">
+			  	<p><%= @product.product_name %></p></br>
+				<p><%= @product.product_description %></p></br>
+				<span class="price"><%= number_to_currency(@product.product_price) %></span></br>
+ 			</div>
+
+		  <div class="tab-pane" id="profile">
+		  		<p>This is where shipping info goes</p>
+		  </div>
+		</div>
+
+		</div>
+	</div>	
+
+</div>
 
 
 
 <%= link_to 'Edit', edit_store_product_path %> |
 <%= link_to 'Back', store_products_path %>
+
+

@@ -1,17 +1,27 @@
-<%= form_for Customer.new do |f| %>
-	<%= f.label :customer_username %>
-	<%= f.text_field :customer_username, id:"customer_username" %>
+<div class="form_container">
 
-	<%= f.label :customer_email %>
-	<%= f.text_field :customer_email, id:"customer_email" %>
+<h1>New Customer Sign up</h1>
 
-	<%= f.label :customer_password %>
-	<%= f.text_field :customer_password, id:"customer_password" %>
+<%= render 'form' %>
 
-	<%= f.label :password_confirmation %>
-	<%= f.text_field :password_confirmation, id:"password_confirmation" %>
+<%= link_to 'Back', sellers_path %>
 
-	<%= f.submit :save %>
+</div>
 
-<% end %>
+<%# form_for Customer.new do |f| %>
+	<%# f.label :customer_username %>
+	<%# f.text_field :customer_username, id:"customer_username" %>
+
+	<%# f.label :customer_email %>
+	<%# f.text_field :customer_email, id:"customer_email" %>
+
+	<%# f.label :customer_password %>
+	<%# f.text_field :customer_password, id:"customer_password" %>
+
+	<%# f.label :password_confirmation %>
+	<%# f.text_field :password_confirmation, id:"password_confirmation" %>
+
+	<%# f.submit :save %>
+
+<%#end %>
 
