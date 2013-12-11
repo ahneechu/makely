@@ -1,0 +1,41 @@
+<nav class="top-bar" data-topbar>
+  <ul class="title-area">
+    <!-- <li class="name"> -->
+      <h1><a href="#">Make.ly</a></h1>
+    <!-- </li> -->
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+
+<!--     <ul class="right">
+        <%# if current_user %>
+          <li><a href="/users/<%#=current_user.id %>/edit">Settings</a></li>
+          <li><a href="/users/results">Results</a></li>
+          <li><%#= link_to "Logout", "/authentications/:id", method: "delete" %></li>
+        <%# else %>
+          <li><a href="/authentications/new">Login</a></li>
+          <li><a href="/users/new">Join</a></li>
+        <%# end %>
+    </ul> -->
+
+    <!-- Left Nav Section -->
+    <ul class="left">
+      <!-- <li><a href="#">Left Nav Button</a></li> -->
+
+    <ul class="right">
+
+        <% if current_customer_user %>
+          <li><a href="/customers/<%=current_customer_user.id %>/edit">Settings</a></li>
+          <li><%= link_to "Logout", "/authentications/:id", method: "delete" %></li>
+        <% else %>
+          <li><a href="/authentications/new">Login</a></li>
+          <li><a href="/customers/new">Join</a></li>
+        <% end %>
+
+
+
+    </ul>
+
+  </section>
+</nav>

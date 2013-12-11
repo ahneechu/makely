@@ -1,23 +1,30 @@
 
-<h1>Order Show</h1>
+<h1>Shopping Cart</h1>
+<!-- <h1>Order Show</h1> -->
 
-<% if notice %>
-<p id="notice"><%= notice %></p>
-<% end %>
+<%# if notice %>
+<!-- <p id="notice"><%# notice %></p> -->
+<%# end %>
 
-<p>
+<!-- <p>
   <strong>Order Number</strong>
-  <%= @order.order_number %>
-</p>
+  <%# @order.order_number %>
+</p> -->
 
-<p>
+<!-- <p>
   <strong>Order Date</strong>
-  <%= @order.ordered_date %>
-</p>
+  <%# @order.ordered_date %>
+</p> -->
+
+
 
 <ul>
+
 	<% @order.line_items.each do |item| %>
+	<li><%= item.product.product_name %></li>
 	<li><%= item.product.product_description %></li>
+	<li><span class="price"><%= number_to_currency(item.product.product_price) %></span></li>
+	</br>
 	<% end %>
 </ul>
 

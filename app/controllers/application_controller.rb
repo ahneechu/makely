@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
 	end
 
 	def authenticate_customer_user
-		redirect_to customer_authentications_new_url unless current_customer_user
+		redirect_to authentications_new_url unless current_customer_user
 	end
 
 

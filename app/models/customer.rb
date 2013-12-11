@@ -12,9 +12,24 @@ class Customer < ActiveRecord::Base
 	validate :customer_email, uniqueness: { case_sensitive: false }
 	validate :customer_hashed_password, confirmation: true
 
+	# def authenticate(password)
+	# 	self.hashed_password ==
+	# 	BCrypt::Engine.hash_secret(password, self.salt)
+	# end
+
+
+
+	def current_order
+		if orders.empty?
+			orders.create
+		else
+			orders.last
+		end
+	end
+
 	def authenticate(password)
-		self.hashed_password ==
-		BCrypt::Engine.hash_secret(password, self.salt)
+		self.customer_hashed_password ==
+		BCrypt::Engine.hash_secret(password, self.customer_salt)
 	end
 
 

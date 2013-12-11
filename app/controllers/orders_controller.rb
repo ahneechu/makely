@@ -36,7 +36,8 @@ before_action :set_order, only: [:show, :edit, :update, :destroy]
 	def create
 		# @customer = Customer.find(params[:customer_id])
 		customer = Customer.find(params[:customer_id])
-		@order = customer.orders.create(order_params)
+		@order = customer.orders.new(order_params)
+		# @order = customer.orders.create(order_params)
 
 		# @order = Order.new(params.require(:order).permit(order_params))
 		# @order = Order.new(params[:order].permit(:order_number, :ordered_date, :pending_date, :completed_date, :cancel_date, :archived_state, :product_purchased, :customer_id, :store_id))
@@ -49,27 +50,29 @@ before_action :set_order, only: [:show, :edit, :update, :destroy]
 			# redirect_to "/customers/5/orders"
 			# redirect_to customer_order_url
 			# redirect_to customers_url
+		else
+			render new
 		end
 
 	end
 
-		def edit
-	     	@order = Order.find(params[:id])
-	  	end
+	def edit
+     	@order = Order.find(params[:id])
+  	end
 
-	  	def update
-	  		if @order.update_attributes(order_params)
-	  		# @order.update(order_params)
-	  		redirect_to customer_orders_url
-	  	end
-	  	end
-
-	  	 def destroy
-	  	 	@order.destroy
-	  	 	# Order.find(params[:id]).destroy
-    		# @order.destroy
-    		redirect_to customer_orders_url
+  	def update
+  		if @order.update_attributes(order_params)
+  		# @order.update(order_params)
+  		redirect_to customer_orders_url
   		end
+  	end
+
+  	def destroy
+  	 	@order.destroy
+  	 	# Order.find(params[:id]).destroy
+		# @order.destroy
+		redirect_to customer_orders_url
+	end
 
 
 private
@@ -84,7 +87,7 @@ private
 
 
       # @order = Order.find(params[:id])
-          # respond_with (@orders)
+      #     respond_with (@orders)
 
 
     end

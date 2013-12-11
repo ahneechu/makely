@@ -1,6 +1,10 @@
 
 <h1>Customer Show</h1>
 
+<% if current_customer_user %>
+<h2> Welcome </h2>
+<% end %>
+
 <p>
   <strong>Email:</strong>
   <%= @customer.customer_email %>
