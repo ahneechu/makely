@@ -34,17 +34,24 @@
       </div>
 
       <div class="form-group">
-      <%= f.label :product_image %></br>
-      <%= f.text_field :product_image, id:"product_image", class: 'form-control' %>
-      <%= @product.errors[:product_image].join(", ") %>
-      </div>
-
-      <div class="form-group">
       <%= f.label :product_price %></br>
       <%= f.text_field :product_price, id:"product_price", class: 'form-control' %>
       <%= @product.errors[:product_price].join(", ") %>
       </div>
 
+      <div class="form-group">
+      <%= f.label :product_image %></br>
+            <h3 id="drag-here">Drag all photos here</h3>
+            <%= s3_uploader_form callback_url: images_url, id: "s3-uploader", callback_param: "image[direct_upload_url]", expiration: 24.hours.from_now.utc.iso8601, max_file_size: 5.megabytes do %>
+            <%= hidden_field_tag  "Content-type", "" %>
+            <%= file_field_tag :file, multiple: true %>
+            <% end %>
+          <div id="uploads_container"></div>
+      <%= f.text_field :product_image, id:"product_image", class: 'form-control' %>
+      <%= @product.errors[:product_image].join(", ") %>
+      </div>
+
+    
       <div>
       <%= f.submit :save, class: 'btn btn-default' %>
       </div>
@@ -52,12 +59,7 @@
     </div>
     <% end %>
 
-    <h3 id="drag-here">Drag all photos here</h3>
-    <%= s3_uploader_form callback_url: images_url, id: "s3-uploader", callback_param: "image[direct_upload_url]", expiration: 24.hours.from_now.utc.iso8601, max_file_size: 5.megabytes do %>
-    <%= hidden_field_tag  "Content-type", "" %>
-    <%= file_field_tag :file, multiple: true %>
-    <% end %>
-    <div id="uploads_container"></div>
+    
 
     <script id="template-upload" type="text/x-tmpl">
     <div id="upload_{%=o.unique_id%}" class="upload">
