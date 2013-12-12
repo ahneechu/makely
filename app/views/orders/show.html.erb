@@ -1,5 +1,22 @@
 
 <h1>Shopping Cart</h1>
+<table>
+	<% @order.line_items.each do |item| %>
+	<tr>
+		<td><%= item.product_quantity_ordered %> &times; <%= item.product.product_name %></td>
+		<!-- <li><%# item.product.product_name %></li> -->
+		<td><%= item.product.product_description %></td>
+		<td><span class="price"><%= number_to_currency(item.product.product_price) %></span></td>
+		</br>
+	</tr>
+	<% end %>
+</table>
+</br>
+<%# button_to 'Empty Cart', @order, method: :delete, data: {confirm: 'Are you sure?'} %>
+</br>
+</br>
+<%= link_to 'Back', customer_orders_path %>
+
 <!-- <h1>Order Show</h1> -->
 
 <%# if notice %>
@@ -16,18 +33,4 @@
   <%# @order.ordered_date %>
 </p> -->
 
-
-
-<ul>
-
-	<% @order.line_items.each do |item| %>
-	<li><%= item.product.product_name %></li>
-	<li><%= item.product.product_description %></li>
-	<li><span class="price"><%= number_to_currency(item.product.product_price) %></span></li>
-	</br>
-	<% end %>
-</ul>
-
-
-<%= link_to 'Back', customer_orders_path %>
 

@@ -24,13 +24,13 @@ class LineItemsController < ApplicationController
 	def create
 	# fail
 
-	# current_user.cart == nil
+	# current_customer_user.order == nil
 	# create a new cart - create
 	# user & cart
 	# user has one cart
 	# place the order - delete the cart
-
-	
+	# current_customer_user.order.last
+	# current_customer_user.customer_order -> use this instead of current order
 
 
 	#Add boolean to database field - orders open/close
@@ -38,11 +38,33 @@ class LineItemsController < ApplicationController
 
 
 	# @order = Order.find(params[:order_id])
-	puts @order.inspect 
+	# puts @order.inspect 
+
+
 	product = Product.find(params[:product_id])
-	@line_item = @order.line_items.build(product: product)
+
+	# the following does cart line items
+# 	puts "HERE "+ @line_item.inspect
+	@line_item = @order.add_product(product.id)
+# puts "HERE 2 "+ @order.inspect
+# puts "HERE 3 "+ @line_item.inspect
+
+	# the following is the working line
+	# @line_item = @order.line_items.build(product: product)
+	
+	# Ira Brainstorm: 
+	# something like: if @order.line_items.product.find_by(product_id: product) = product
+	# 	@line_item = @order.line_item.product
+	# 	@line_item.product_quantity_ordered += 1
+	# 	@line_item.save
+	# else
+	# 	@line_item = @order.line_items.build(product: product)
+	# end
+
+	
+
 	# @line_item = @order.line_items.build(product: product, order: @order)
-	puts @line_item.inspect
+	# puts @line_item.inspect
 
 
 		respond_to do |format|

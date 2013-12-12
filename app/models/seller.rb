@@ -5,8 +5,8 @@ class Seller < ActiveRecord::Base
 
 	before_save :hash_password
 
-	# validates :seller_username, presence: true
-	# validates :seller_username, uniqueness: { case_sensitive: false }
+	validates :seller_username, presence: true
+	validates :seller_username, uniqueness: { case_sensitive: false }
 	validates :email, presence: true
 	validates :email, uniqueness: { case_sensitive: false }
 	# check to see if password and password_confirmation is validating correctly
