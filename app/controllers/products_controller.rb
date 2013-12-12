@@ -4,8 +4,8 @@ class ProductsController < ApplicationController
   # GET /store/:store_id/products
   # GET /store/:store_id/products.json
   def index
-    store = Store.find(params[:store_id])
-    @products = store.products
+    @store = Store.find(params[:store_id])
+    @products = @store.products
   end
 
   def all_products
@@ -35,6 +35,7 @@ class ProductsController < ApplicationController
   def create
     store = Store.find(params[:store_id])
     @product = store.products.create(product_params)
+    # @image = @product.images.create(image_params)
 
     respond_to do |format|
       if @product.save
@@ -85,4 +86,8 @@ class ProductsController < ApplicationController
       # params[:product]
       params.require(:product).permit(:product_name, :product_description, :product_image, :product_price, :store_id, :category_id)
     end
+
+    # def image_params
+    #   params.require(:image).permit(:direct_upload_url)
+    # end
 end

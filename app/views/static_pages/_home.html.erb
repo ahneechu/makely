@@ -21,6 +21,7 @@
       <li></li>
       <li><%= link_to "Shop by Cause", causes_path %></li>
       <li><%= link_to "Shop by Category", categories_path %></li>
+      <li><%= link_to "Shop by Store", stores_path %></li>
       <li><%= link_to "Shop by Product", products_all_path %></li>
     </ul>
   </div>
@@ -30,7 +31,7 @@
 var initTopPosition= $('#myElementToStick').offset().top;   
 $(window).scroll(function(){
     if($(window).scrollTop() > initTopPosition - 60)
-        $('#myElementToStick').css({'position':'fixed','top':'60px', 'width':'100%'});
+        $('#myElementToStick').css({'position':'fixed','top':'60px', 'width':'110%'});
     else
         $('#myElementToStick').css({'position':'absolute','top':initTopPosition+'px'});
 });

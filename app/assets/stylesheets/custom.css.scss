@@ -1,9 +1,9 @@
 @import "bootstrap";
 
-
 body{ 
 	padding-top: 70px; 
-	background: url(image-path('wallpaper.jpg'));
+	background: url(image-path('lyonnette.png'));
+	/*width: 100%;*/
 }
 
 .container{
@@ -16,15 +16,17 @@ body{
 	border-bottom: 10px solid #EEA9B8;
 	/*margin-right: -20px;*/
 	padding-right: 50px; 
+	font-family: 'Alegreya Sans SC', sans-serif;
 }
 
 /*mid-navbar - centering mid-navbar text*/
 .navbar-nav{
-	padding-left: 35%;
+	font-family: 'Alegreya Sans SC', sans-serif;
+	padding-left: 30%;
 }
 
 #myElementToStick{
-	width: 100%;
+	width: 110%;
 	z-index: 999;
 }
 
@@ -55,11 +57,18 @@ body{
 
 .form_container{
 	width: 600px;
-	height: 575px;
+	height: 800px;
 	margin: 0 auto;
 	padding: 10px auto;
-	/*background-color: gray;*/
+	background-color: #e7e7e7;
 }
+
+/*.info_form{
+	margin: 10px auto;
+	padding: 10px auto;
+	background-color: #e7e7e7;
+
+}*/
 
 .row{
 	background-color: #e7e7e7;
@@ -67,35 +76,18 @@ body{
 	padding: 10px auto;
 }
 
+
 /*causes and categories buttons*/
 .cause_container{
-	/*width: 100%;*/
 	height: 1000px;
 	margin: 10px auto;
 	/*background-color: green;*/
 }
 
-.cause_row{
-	/*width: 380px;*/
-	/*height: 120px;*/
-	/*margin: 10px;*/
-	/*float: left;*/
-	/*background-color: blue;*/
-}
-
-/*.cause_img{
-	width: 300px;
-	height: 100px;
-	margin: 10px auto;
-	margin-left: 35px;
-	text-align: center;
-	background-color: gray;
-}*/
-
-.thumbnail{
-	border: 2px solid gray;
-	padding-bottom: 10px;
-	text-align: center;
+.myBtn{
+	margin-bottom: 30px;
+	border-radius: 0;
+	border: 2px solid #c0c0c0;
 }
 
 .font{
@@ -125,17 +117,20 @@ body{
 }
 
 .border{
+	font-family: 'Alegreya Sans SC', sans-serif;
 	width: 175px;
 	height: 175px;
 	margin-left: 12px;
 	margin-top: 10px;
 	background-color: #e7e7e7;
-	border: 1px solid gray;
+	border: 1px solid #c0c0c0;
 	border-radius: 3px;
+	padding: 10px;
 }
 
 .border:hover{
-			background-color: #FFFEFD;
+			background-color: gray;
+			color: white;
 		}
 
 

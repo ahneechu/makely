@@ -1,15 +1,6 @@
 <!-- <h1>Product Show Page</h1> -->
 
-<script type="text/javascript">
-	$('#myTab a').click(function (e) {
-	  e.preventDefault()
-	  $(this).tab('show')
-	})
-</script>
-
 <p id="notice"><%= notice %></p>
-
-
 
 <div class="product_container">
 	<div class= "product_show_row">
@@ -60,9 +51,17 @@
 
 </div>
 
-
-
 <%= link_to 'Edit', edit_store_product_path %> |
 <%= link_to 'Back', store_products_path %>
+
+<script type="text/javascript">
+$(document).ready(function() {  
+	$('#myTab a').click(function (e) {
+	  e.preventDefault()
+	  $(this).tab('show')
+	});
+});
+
+</script>
 
 

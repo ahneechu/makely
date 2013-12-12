@@ -6,6 +6,8 @@ class ImagesController < ApplicationController
 	  # make sure to save image
 	end
 
+	
+
 private
 	def image_params
 		params.require(:image).permit(:direct_upload_url)

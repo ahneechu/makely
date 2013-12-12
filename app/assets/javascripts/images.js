@@ -1,5 +1,5 @@
 // assets/javascripts/documents.js
-$(function() {
+$(document).ready(function() {  
   $('#s3-uploader').S3Uploader(
     { 
       remove_completed_progress_bar: false,
