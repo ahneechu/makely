@@ -4,6 +4,8 @@ include CurrentOrder
 
 before_action :set_order, only: [:show, :edit, :update, :destroy]
 
+rescue_from ActiveRecord::RecordNotFound, with: :invalid_order
+
 	def new
 		# @customer_id = params[:customer_id]
 		# @customer = Customer.find(params[:customer_id])
@@ -71,19 +73,27 @@ before_action :set_order, only: [:show, :edit, :update, :destroy]
   	 	@order.destroy
   	 	# Order.find(params[:id]).destroy
 		# @order.destroy
-		redirect_to customer_orders_url
+		respond_to do |format|
+		format.html { redirect_to customer_order_url, notice: 'Your cart is currently empty'}
+		# format.html { redirect_to store_products_url, notice: 'Your cart is currently empty'}
+		format.json { head :no_content}
+		end
 	end
 
+	def invalid_order
+		logger.error "Attempt to access invalid order #{params[:id]}"
+		redirect_to customer_orders_url, notice: 'Invalid order'
+	end
 
 private
     # Use callbacks to share common setup or constraints between actions.
 
     def set_order
-    	# customer = Customer.find(params[:customer_id])
-    	# @order = customer.orders.find(params[:id])
+    	customer = Customer.find(params[:customer_id])
+    	@order = customer.orders.find(params[:id])
 
     	#*TEST- Currently using Fictious customer 5 as a test
-    	@order = Order.find(params[:id])
+    	# @order = Order.find(params[:id])
 
 
       # @order = Order.find(params[:id])

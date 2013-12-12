@@ -8,7 +8,7 @@ class Customer < ActiveRecord::Base
 
 	before_save :hash_password
 	
-	validate :customer_username
+	# validate :customer_username
 	validate :customer_email, presence: true
 	validate :customer_email, uniqueness: { case_sensitive: false }
 	validate :customer_hashed_password, confirmation: true

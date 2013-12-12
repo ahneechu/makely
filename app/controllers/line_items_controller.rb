@@ -36,24 +36,36 @@ class LineItemsController < ApplicationController
 	#Add boolean to database field - orders open/close
 	#why the current_order_id missing from the session or the params; wrong value in the session?
 
-
+	# we don't use this because the before action does set_order - sets the current order
 	# @order = Order.find(params[:order_id])
 	# puts @order.inspect 
 
 
 	product = Product.find(params[:product_id])
 
-	# the following does cart line items
+	# Book method - the following does cart line items
 # 	puts "HERE "+ @line_item.inspect
 	@line_item = @order.add_product(product.id)
 # puts "HERE 2 "+ @order.inspect
 # puts "HERE 3 "+ @line_item.inspect
 
+
 	# the following is the working line
 	# @line_item = @order.line_items.build(product: product)
-	
+
+
+	# if @order.line_items.product.find_by product_id: 'product'
+	# 	@line_item = @order.line_item.product
+	# 	@line_item.product_quantity_ordered += 1
+	# 	@line_item.save
+	# else
+	# 	@line_item = @order.line_items.build(product: product)
+	# end
+
+
+
 	# Ira Brainstorm: 
-	# something like: if @order.line_items.product.find_by(product_id: product) = product
+	# something like: if @order.line_items.product.find_by(product_id: product) == product
 	# 	@line_item = @order.line_item.product
 	# 	@line_item.product_quantity_ordered += 1
 	# 	@line_item.save
@@ -117,7 +129,9 @@ private
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def line_items_params
-      params.require(:line_item).permit!
+      # params.require(:line_item).permit!
+
+      params.require(:line_item).permit(:product_id)
 
     end
 

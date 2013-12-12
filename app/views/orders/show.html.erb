@@ -12,7 +12,7 @@
 	<% end %>
 </table>
 </br>
-<%# button_to 'Empty Cart', @order, method: :delete, data: {confirm: 'Are you sure?'} %>
+<%= button_to 'Empty Cart', @orders, method: :delete, data: {confirm: 'Are you sure?'} %>
 </br>
 </br>
 <%= link_to 'Back', customer_orders_path %>
