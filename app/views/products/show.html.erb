@@ -65,9 +65,13 @@
 		</div>
 
 		<div class="category_info">
-			<h2>Category Info</h2>
-			<p>Cause Logo</p>
-			<p>Category Logo</p>
+			<p>Cause</p>
+			<button type="button" class="btn btn-default myBtn"><%= link_to @store.cause.cause_name, @store.cause, class: "font" %>
+			</button>
+
+			<p>Category</p>
+			<button type="button" class="btn btn-default myBtn"><%= link_to @product.category.category_name, @product.category, class: "font" %>
+			</button>
 		</div>
 	
 		<div class="store_info">
@@ -108,15 +112,4 @@
 
 <%= link_to 'Edit', edit_store_product_path %> |
 <%= link_to 'Back', store_products_path %>
-
-
-<script type="text/javascript">
-	$(document).ready(function() {  
-		$('#myTab a').click(function (e) {
-		  e.preventDefault()
-		  $(this).tab('show')
-		});
-	});
-</script>
-
 
