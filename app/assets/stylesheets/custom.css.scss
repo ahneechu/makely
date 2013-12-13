@@ -1,9 +1,15 @@
 @import "bootstrap";
+@import url(http://fonts.googleapis.com/css?family=Alegreya+Sans+SC);
+@import url(http://fonts.googleapis.com/css?family=Bad+Script|Paprika|Carrois+Gothic+SC);
 
 body{ 
 	padding-top: 70px; 
 	background: url(image-path('lyonnette.png'));
-	/*width: 100%;*/
+	
+	h1 h2 h3 h4 p{
+		font-family: 'Alegreya Sans SC', sans-serif;
+
+	}
 }
 
 .container{
@@ -27,7 +33,9 @@ body{
 .navbar-nav{
 	padding-left: 25%;
 	a{
-		font-family: 'Bad Script', cursive;
+		/*font-family: 'Bad Script', cursive;*/
+		/*font-family: 'Paprika', cursive;*/
+		font-family: 'Carrois Gothic SC', sans-serif;
 		font-size: 20px;
 	}
 }
@@ -90,6 +98,12 @@ body{
 	border: 2px solid #c0c0c0;
 }
 
+.myBtn_sm{
+	/*margin-bottom: 30px;*/
+	border-radius: 0;
+	border: 2px solid #c0c0c0;
+}
+
 .font{
 	font-family: 'Alegreya Sans SC', sans-serif;
 }
@@ -136,9 +150,11 @@ body{
 
 /*Product Page*/
 .product_container{
-	width: 1100px;
+	width: 1250px;
+	margin: 0 auto;
+	padding: 20px;
 	height: 1500px;
-	background-color: #e7e7e7;
+	background-color: #E4E4E6;
 }
 
 .product_show_img{
@@ -153,8 +169,6 @@ body{
 }
 
 .prod_show_border{
-	font-family: 'Alegreya Sans SC', sans-serif;
-	width: 670px;
 	height: 370px;
 	margin-left: -5px;
 	/*margin-top: 10px;*/
@@ -166,22 +180,20 @@ body{
 }
 
 .product_thumbnails{
-	font-family: 'Alegreya Sans SC', sans-serif;
 	height: 150px;
 	margin: 20px auto;
 	padding-left: 30px;
 	text-align: center;
 	border: 1px solid #ddd;
 	border-radius: 4px;
-	background-color: white;
+	background-color: #5F5E5D;
 }
 
 .prod_thumb{
-	font-family: 'Alegreya Sans SC', sans-serif;
 	width: 125px;
 	height: 125px;
 	margin-top: 10px;
-	margin-left: 30px;
+	margin-left: 45px;
 	margin-bottom: 20px;
 	float: left;
 	text-align: center;
@@ -191,7 +203,6 @@ body{
 }
 
 .prod_border{
-	font-family: 'Alegreya Sans SC', sans-serif;
 	width: 100px;
 	height: 100px;
 	margin-left: 12px;
@@ -209,7 +220,7 @@ body{
 
 .product_info{
 	font-family: 'Alegreya Sans SC', sans-serif;
-	height: 400px;
+	height: 600px;
 	margin: 20px auto;
 	padding: 10px 20px;
 	border: 1px solid #ddd;
@@ -217,14 +228,36 @@ body{
 	background-color: white;
 }
 
+.nav-tabs > li > a {
+	border: 1px solid #c0c0c0;
+	background-color: #e7e7e7;
+}
+
+.tab-pane{
+	height: 520px;
+	padding: 30px;
+	border-radius: 4px;
+	background-color: #5F5E5D;
+	color: white;
+
+}
+
 .cart{
 	height: 150px;
-	margin: 20px auto;
-	padding: 10px 20px;
+	margin: 20px auto 0;
+	/*padding: 10px 20px;*/
 	text-align: center;
 	border: 1px solid #ddd;
 	border-radius: 4px;
 	background-color: white;
+}
+
+.cart_border{
+	height: 90px;
+	border-radius: 4px;
+	border-radius-top: 0; 
+	background-color: #5F5E5D;
+
 }
 
 .category_info{
@@ -235,31 +268,32 @@ body{
 	text-align: center;
 	border: 1px solid #ddd;
 	border-radius: 4px;
-	background-color: white;
+	color: white;
+	background-color: #5F5E5D;
 }
 
 .store_info{
 	font-family: 'Alegreya Sans SC', sans-serif;
 	height: 450px;
 	margin: 20px auto;
-	padding: 10px 20px;
-	display: block;
+	padding: 0;
 	border: 1px solid #ddd;
 	border-radius: 4px;
 	background-color: white;
-		h2{
+		h1{
 			text-align: center;
 		}
 }
 
+
+
 .store_border{
-	font-family: 'Alegreya Sans SC', sans-serif;
-	width: 95%;
-	height: 350px;
-	margin-left: 8px;
+	height: 380px;
+	/*margin-left: 8px;*/
 	padding: 20px;
 	border: 2px solid #c0c0c0;
 	border-radius: 4px;
+	border-radius-top: 0; 
 	color: white;
 	background-color: #5F5E5D;
 
@@ -267,19 +301,28 @@ body{
 }
 
 .store_prods{
-	font-family: 'Alegreya Sans SC', sans-serif;
-	height: 400px;
+	height: 500px;
 	margin: 20px auto;
-	padding: 10px 10px;
-	padding-left: -10px;
+	/*padding: 10px 10px;*/
+	/*padding-left: -10px;*/
 	border: 1px solid #ddd;
 	border-radius: 4px;
 	text-align: center;
 	background-color: white;
 }
 
+.store_prod_border{
+	height: 450px;
+	border-radius: 4px;
+	border-radius-top: 0; 
+	/*padding-left: 5px;*/
+	background-color: #5F5E5D;
+
+}
+
 .r{
-	margin-left: 20px;
+	margin-top: 10px;
+	margin-left: 40px;
 
 }
 
