@@ -17,6 +17,8 @@ class ProductsController < ApplicationController
   def show
     # @cause = Cause.find(params[:cause_id])
     # @category = Category.find(params[:category_id])
+
+    # @image = @product.images.find(product)
   end
 
   # GET /store/:store_id/products/new
@@ -27,15 +29,15 @@ class ProductsController < ApplicationController
 
   # GET /store/:store_id/products/1/edit
   def edit
-    
   end
 
   # POST /store/:store_id/products
   # POST /store/:store_id/products.json
   def create
-    store = Store.find(params[:store_id])
-    @product = store.products.create(product_params)
-    @image = @product.images.create(image_params)
+    # logger.info params[:images][:direct_upload_url]
+    # store = Store.find(params[:store_id])
+    # @product = store.products.create(product_params)
+    # @image = @product.images.create!(image_params)
 
     respond_to do |format|
       if @product.save
@@ -51,6 +53,9 @@ class ProductsController < ApplicationController
   # PATCH/PUT /store/:store_id/products/1
   # PATCH/PUT /store/:store_id/products/1.json
   def update
+    # store = Store.find(params[:store_id])
+    # @product = store.products.create(product_params)
+    # @image = @product.images.create!(image_params)
     respond_to do |format|
       if @product.update_attributes(product_params)
         format.html { redirect_to([@product.store, @product], notice: 'Product was successfully updated.') }
@@ -84,10 +89,11 @@ class ProductsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
       # params[:product]
-      params.require(:product).permit(:product_name, :product_description, :product_image, :product_price, :store_id, :category_id)
+      params.require(:product).permit(:product_name, :product_description, :product_price, :store_id, :category_id)
     end
 
-    def image_params
-      params.require(:image).permit(:direct_upload_url)
-    end
+    # def image_params
+    #     params.require(:image).permit(:direct_upload_url)
+    # end
+
 end

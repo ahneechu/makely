@@ -3,65 +3,120 @@
 <p id="notice"><%= notice %></p>
 
 <div class="product_container">
-	<div class= "product_show_row">
-		 <div class="col-xs-6 col-md-3">
-		    <div class="product_show_img">
-
-		    <h2>Product Image</h2>
-
+	<div class="col-xs-12 col-md-8">
+	    <div class="product_show_img">
+	    	<div class="prod_show_border font">
+		    	<h2>Product Image</h2>
+		    		<%#@product.images.each do |i| %>
+			    	<%# image_tag i.url %>
+			    	<%#end%>
 		    </div>
-		 </div>
-	</div>
+		</div>
 
+		<div class="product_thumbnails">
+			<!-- <h2>Product Thumbnails</h2> -->
+				<div class="prod_thumb">
+		    		<div class="prod_border font">
+		    		<p>product image</p>
+		    		</div>
+		    	</div>
+		    	<div class="prod_thumb">
+		    		<div class="prod_border font">
+		    		<p>product image</p>
+		    		</div>
+		    	</div>
+		    	<div class="prod_thumb">
+		    		<div class="prod_border font">
+		    		<p>product image</p>
+		    		</div>
+		    	</div>
+		    	<div class="prod_thumb">
+		    		<div class="prod_border font">
+		    		<p>product image</p>
+		    		</div>
+		    	</div>
+		</div>
 
-	<div class= "product_show_row">
-		<div class="product_show_img">
-			<h2>Store Info</h2>
-			<p><%= @store.store_name %></p>
-			<p><%= @store.store_description %></p>
-			<p><%# @cause.cause_name %></p>
+	<!-- PRODUCT INFO -->
+		<div class="product_info">
+			<!-- Nav tabs -->
+			<ul class="nav nav-tabs font">
+			  <li><a href="#home" data-toggle="tab">Product Info</a></li>
+			  <li><a href="#profile" data-toggle="tab">Shipping Info</a></li>
+			</ul>
+			<!-- Tab panes -->
+			<div class="tab-content font">
+			  <div class="tab-pane active" id="home">
+				  	<p><%= @product.product_name %></p></br>
+					<p><%= @product.product_description %></p></br>
+					<span class="price"><%= number_to_currency(@product.product_price) %></span></br>
+	 		  </div>
+			  
+			  <div class="tab-pane" id="profile">
+			  		<p>This is where shipping info goes</p>
+			  </div>
+			</div>
 		</div>
 	</div>
 
-
-	<div class= "product_show_row">
-		<div class="product_show_img">
-
-		<!-- Nav tabs -->
-		<ul class="nav nav-tabs">
-		  <li><a href="#home" data-toggle="tab">Product Info</a></li>
-		  <li><a href="#profile" data-toggle="tab">Shipping Info</a></li>
-		</ul>
-
-		<!-- Tab panes -->
-		<div class="tab-content">
-		  <div class="tab-pane active" id="home">
-			  	<p><%= @product.product_name %></p></br>
-				<p><%= @product.product_description %></p></br>
-				<span class="price"><%= number_to_currency(@product.product_price) %></span></br>
- 			</div>
-
-		  <div class="tab-pane" id="profile">
-		  		<p>This is where shipping info goes</p>
-		  </div>
+	<div class="col-xs-6 col-md-4">
+		<div class="cart">
+			<h2>Shopping Cart</h2>
 		</div>
 
+		<div class="category_info">
+			<h2>Category Info</h2>
+			<p>Cause Logo</p>
+			<p>Category Logo</p>
 		</div>
-	</div>	
+	
+		<div class="store_info">
+			<h2><%= @store.store_name %></h2>
+				<div class="store_border">
 
+					<h3>Store Info</h3>
+					<p><%= @store.store_description %></p>
+				</div>
+		</div>
+
+		<div class="store_prods">
+			<h2>More Store Products</h2>
+			<div class="prod_thumb r">
+	    		<div class="prod_border">
+	    		<p>product image</p>
+	    		</div>
+	    	</div>
+	    	<div class="prod_thumb r">
+	    		<div class="prod_border">
+	    		<p>product image</p>
+	    		</div>
+	    	</div>
+	    	<div class="prod_thumb r">
+	    		<div class="prod_border">
+	    		<p>product image</p>
+	    		</div>
+	    	</div>
+	    	<div class="prod_thumb r">
+	    		<div class="prod_border">
+	    		<p>product image</p>
+	    		</div>
+	    	</div>
+		</div>
+	</div>
 </div>
+
 
 <%= link_to 'Edit', edit_store_product_path %> |
 <%= link_to 'Back', store_products_path %>
 
-<script type="text/javascript">
-$(document).ready(function() {  
-	$('#myTab a').click(function (e) {
-	  e.preventDefault()
-	  $(this).tab('show')
-	});
-});
 
+<script type="text/javascript">
+	$(document).ready(function() {  
+		$('#myTab a').click(function (e) {
+		  e.preventDefault()
+		  $(this).tab('show')
+		});
+	});
 </script>
 
 

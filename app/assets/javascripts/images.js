@@ -11,7 +11,6 @@ $(document).ready(function() {
   });
   $('#s3-uploader').bind("s3_upload_complete", function(e, content) {
     $('#drag-here').hide();
-    $('form').hide();
   $('#upload-image').append('<img class="upload-image" src="'+content.url+'" />');
   });
 });
