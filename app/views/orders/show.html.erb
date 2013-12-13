@@ -1,16 +1,22 @@
 
-<h1>Shopping Cart</h1>
+<h2>Your Shopping Cart</h1>
 <table>
 	<% @order.line_items.each do |item| %>
 	<tr>
 		<td><%= item.product_quantity_ordered %> &times; <%= item.product.product_name %></td>
 		<!-- <li><%# item.product.product_name %></li> -->
 		<td><%= item.product.product_description %></td>
-		<td><span class="price"><%= number_to_currency(item.product.product_price) %></span></td>
+		<td><span class="price">@<%= number_to_currency(item.product.product_price) %> (each) = </span></td>
+		<td><span class="total_price"><%= number_to_currency(item.total_price) %></span></td>
 		</br>
 	</tr>
-	<% end %>
+	
 </table>
+<% end %>
+</br>
+Your Order Total = <%= number_to_currency(@order.total_price) %>
+</br>
+</br>
 </br>
 <%= button_to 'Empty Cart', @orders, method: :delete, data: {confirm: 'Are you sure?'} %>
 </br>
