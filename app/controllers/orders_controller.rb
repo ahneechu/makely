@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
 
 include CurrentOrder
 
-before_action :set_order, only: [:show, :edit, :update, :destroy]
+before_action :set_order, only: [:new, :create, :show, :edit, :update, :destroy]
 
 rescue_from ActiveRecord::RecordNotFound, with: :invalid_order
 

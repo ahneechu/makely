@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131212005814) do
+ActiveRecord::Schema.define(version: 20131213041622) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,14 +52,39 @@ ActiveRecord::Schema.define(version: 20131212005814) do
     t.datetime "updated_at"
   end
 
+  create_table "finalizedorders", force: true do |t|
+    t.string   "customer_username"
+    t.string   "customer_email"
+    t.string   "customer_name"
+    t.string   "customer_address"
+    t.string   "customer_city"
+    t.string   "customer_state"
+    t.integer  "customer_zipcode"
+    t.string   "customer_phone"
+    t.string   "pay_type"
+    t.string   "CC_number"
+    t.string   "CC_name"
+    t.string   "security"
+    t.string   "code"
+    t.string   "CC_expiration_date"
+    t.string   "customer_shipping_address"
+    t.string   "customer_shipping_city"
+    t.string   "customer_shipping_state"
+    t.integer  "customer_shipping_zipcode"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "line_items", force: true do |t|
     t.integer  "product_quantity_ordered"
     t.integer  "order_id"
     t.integer  "product_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "finalizedorder_id"
   end
 
+  add_index "line_items", ["finalizedorder_id"], name: "index_line_items_on_finalizedorder_id", using: :btree
   add_index "line_items", ["order_id"], name: "index_line_items_on_order_id", using: :btree
   add_index "line_items", ["product_id"], name: "index_line_items_on_product_id", using: :btree
 

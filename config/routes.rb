@@ -21,6 +21,8 @@ Makely::Application.routes.draw do
 
   resources :seller_authentications
 
+  resources :finalizedorders
+
 
 
   # Example of regular route:

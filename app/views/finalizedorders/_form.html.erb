@@ -1,0 +1,40 @@
+<%= form_for(@finalizedorder) do |f| %>
+	<% if @finalizedorder.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@finalizedorder.errors.count, "error") %>
+				prohibited this order from being saved:</h2>
+
+				<ul>
+					<% @order.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+					<% end %>
+				</ul>
+			</div>
+		<% end %>
+
+		<div class="field">
+			<%= f.label :customer_username %>
+			<%= f.text_field :customer_username, size:40 %>
+		</div>
+
+		<div class="field">
+			<%= f.label :customer_address %>
+			<%= f.text_field :customer_address, size:40 %>
+		</div>
+
+		<div class="field">
+			<%= f.label :customer_email %>
+			<%= f.text_field :customer_email, size:40 %>
+		</div>
+
+		<div class="field">
+			<%= f.label :pay_type %>
+			<%= f.select :pay_type, Finalizedorder::PAYMENT_TYPES,
+				prompt: 'Select a payment method' %>
+		</div>
+
+		<div class="actions">
+			<%= f.submit 'Place Order' %>
+		</div>
+
+<% end %>

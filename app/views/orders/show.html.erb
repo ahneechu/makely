@@ -18,6 +18,8 @@ Your Order Total = <%= number_to_currency(@order.total_price) %>
 </br>
 </br>
 </br>
+<%= button_to 'Checkout', new_finalizedorder_path, method: :get %>
+</br>
 <%= button_to 'Empty Cart', @orders, method: :delete, data: {confirm: 'Are you sure?'} %>
 </br>
 </br>
