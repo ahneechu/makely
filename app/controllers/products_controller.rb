@@ -7,15 +7,21 @@ class ProductsController < ApplicationController
   # GET /store/:store_id/products
   # GET /store/:store_id/products.json
   def index
-    store = Store.find(params[:store_id])
-    @products = store.products
+    # store = Store.find(params[:store_id])
+    # @products = store.products
     
+    @store = Store.find(params[:store_id])
+    @products = @store.products
+  end
+
+  def all_products
+    @products = Product.all.order(:category_id)
   end
 
   # GET /store/:store_id/products/1
   # GET /store/:store_id/products/1.json
   def show
-    
+    # @image = @product.images.find(product)
   end
 
   # GET /store/:store_id/products/new
@@ -26,14 +32,15 @@ class ProductsController < ApplicationController
 
   # GET /store/:store_id/products/1/edit
   def edit
-    
   end
 
   # POST /store/:store_id/products
   # POST /store/:store_id/products.json
   def create
-    store = Store.find(params[:store_id])
-    @product = store.products.create(product_params)
+    # logger.info params[:images][:direct_upload_url]
+    # store = Store.find(params[:store_id])
+    # @product = store.products.create(product_params)
+    # @image = @product.images.create!(image_params)
 
     respond_to do |format|
       if @product.save
@@ -49,6 +56,9 @@ class ProductsController < ApplicationController
   # PATCH/PUT /store/:store_id/products/1
   # PATCH/PUT /store/:store_id/products/1.json
   def update
+    # store = Store.find(params[:store_id])
+    # @product = store.products.create(product_params)
+    # @image = @product.images.create!(image_params)
     respond_to do |format|
       if @product.update_attributes(product_params)
         format.html { redirect_to([@product.store, @product], notice: 'Product was successfully updated.') }
@@ -74,14 +84,19 @@ class ProductsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_product
       #1st you retrieve the store 
-      store = Store.find(params[:store_id])
+      @store = Store.find(params[:store_id])
       #2nd you retrieve the product.  
-      @product = store.products.find(params[:id])
+      @product = @store.products.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
       # params[:product]
-      params.require(:product).permit(:product_name, :product_description, :product_image, :product_price, :store_id, :category_id)
+      params.require(:product).permit(:product_name, :product_description, :product_price, :store_id, :category_id)
     end
+
+    # def image_params
+    #     params.require(:image).permit(:direct_upload_url)
+    # end
+
 end

@@ -1,0 +1,27 @@
+<!-- <h1>Stores Show Page</h1> -->
+
+<p id="notice"><%= notice %></p>
+
+<h1><%= @store.store_name %></h1></br>
+
+<%= link_to 'Back', stores_path %>
+
+<div class="cause_container">
+	<% @products.each do |p| %>
+		<div class= "product_row">
+		  <div class="col-xs-6 col-md-3">
+		    <div class="product_img">
+		    	<div class="border">
+				<h4><span class="font"><%= p.product_name %></span></h4></br>
+				<p><span class="font"><%= p.product_description %></span></p></br></br>
+				<span class="price"><%= number_to_currency(p.product_price) %></span></br>
+				<%= link_to "show product", store_product_url(p.store.id, p.id) %>
+			</div>
+			</div>
+		  </div>
+		</div>
+	<% end %>
+</div>
+
+<%# link_to 'Edit', edit_category_path(@category) %> |
+

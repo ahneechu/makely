@@ -1,6 +1,14 @@
-<h1>Listing products</h1>
+<% if @seller %>
+<%= render 'products_index' %>
+<% else %>
+<%= render 'store_products_page' %>
+<% end %> 
 
-<table class="table table-hover">
+
+
+<!-- <h1>Listing products</h1> -->
+
+<!-- <table class="table table-hover">
   <thead>
     <tr>
       <th colspan="2">Product Name</th>
@@ -12,25 +20,22 @@
   <tbody>
 
   <%# cache ['store', Product.latest] do %>
-    <% @products.each do |product| %>
+    <%#@products.each do |product| %>
 
       <tr>
-        <td colspan="2"><%= product.product_name %></td>
-        <td><%= product.product_description %></td>
-        <td><%# button_to 'Add to Cart', [product.store, product] %></td>
-        <td><%= button_to 'Add to Cart', line_items_path(product_id: product) %></td>
-        <!-- <td><%# button_to 'Add to Cart', line_items_path(product.store, product_id) %></td> -->
-
-        <td><%= link_to 'Show', [product.store, product] %></td>
-        <td><%= link_to 'Edit', edit_store_product_path(product.store, product) %></td>
-        <td><%= link_to 'Delete', [product.store, product], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td colspan="2"><%# product.product_name %></td>
+        <td><%# product.product_description %></td>
+        <td><%# button_to 'Add to Cart', line_items_path(product_id: product) %></td>
+        <td><%# link_to 'Show', [product.store, product] %></td>
+        <td><%# link_to 'Edit', edit_store_product_path(product.store, product) %></td>
+        <td><%# link_to 'Delete', [product.store, product], method: :delete, data: { confirm: 'Are you sure?' } %></td>
 
       </tr>
-    <% end %>
-    <%# end %>
+    <%#end %>
+
   </tbody>
 </table>
 
-<br>
+<br> -->
 
-<%= link_to 'New Product', new_store_product_path, class: 'btn btn-default' %>
+<%# link_to 'New Product', new_store_product_path, class: 'btn btn-default' %>

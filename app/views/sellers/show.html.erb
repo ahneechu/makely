@@ -1,8 +1,10 @@
+<div class="form_container">
+
 <p id="notice"><%= notice %></p>
 
 <h1>Welcome <%= @seller.seller_username %>!</h1>
 
-<div>
+<div class="info_form">
 <h3>Please check your seller info to ensure everything looks good!</h3>
 
 <h4>Name</h4>
@@ -21,3 +23,7 @@
 <%# link_to new_store_path, { controller: "stores", action: "new"}, {method: :get} %>
 
 </div>
+</br><p>seller id:<%= @seller.id%></p>
+</div>
+
+

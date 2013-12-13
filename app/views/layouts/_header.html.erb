@@ -1,51 +1,38 @@
-<nav class="top-bar" data-topbar>
-  <ul class="title-area">
-    <!-- <li class="name"> -->
-      <h1><a href="#">Make.ly</a></h1>
-    <!-- </li> -->
-  </ul>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="/">make.ly</a>
+  </div>
 
-  <section class="top-bar-section">
-    <!-- Right Nav Section -->
-
-<!--     <ul class="right">
-        <%# if current_user %>
-          <li><a href="/users/<%#=current_user.id %>/edit">Settings</a></li>
-          <li><a href="/users/results">Results</a></li>
-          <li><%#= link_to "Logout", "/authentications/:id", method: "delete" %></li>
-        <%# else %>
-          <li><a href="/authentications/new">Login</a></li>
-          <li><a href="/users/new">Join</a></li>
-        <%# end %>
-    </ul> -->
-
-    <!-- Left Nav Section -->
-    <ul class="left">
-      <!-- <li><a href="#">Left Nav Button</a></li> -->
-
-    <ul class="right">
-
-        <% if current_customer_user %>
-          <li><a href="/customers/<%=current_customer_user.id %>/edit">Customer Settings</a></li>
-          <li><%= link_to "Customer Logout", "/authentications/:id", method: "delete" %></li>
-        <% else %>
-          <li><a href="/authentications/new">Customer Login</a></li>
-          <li><a href="/customers/new">Customer Sign-up</a></li>
-        <% end %>
-        </br>
-
-
-        <% if current_user %>
-          <li><a href="/customers/<%=current_user.id %>/edit">Seller Settings</a></li>
-          <li><%= link_to "Seller Logout", "/seller_authentications/:id", method: "delete" %></li>
-        <% else %>
-          <li><a href="/seller_authentications/new">Seller Login</a></li>
-          <li><a href="/sellers/new">Seller Sign-up</a></li>
-        <% end %>
-
-
-
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav">
+      <!-- <li><%# link_to "Shop by Cause", causes_path %></li>
+      <li><%# link_to "Shop by Category", categories_path %></li>
+      <li><a href="#">Shop by Product</a></li> -->
     </ul>
-
-  </section>
+    
+    <ul class="nav navbar-nav navbar-right">
+      <li><%= link_to "Create a Store", new_seller_path %></li>
+      <li><%= link_to "User Sign Up", new_customer_path %></li>
+     
+      <!-- <li><a href="#">User Sign In</a></li> -->
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Action</a></li>
+          <li><a href="#">Another action</a></li>
+          <li><a href="#">Something else here</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Separated link</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div><!-- /.navbar-collapse -->
 </nav>

@@ -1,0 +1,10 @@
+<!-- <h1>Listing Categories</h1> -->
+
+<div class="cause_container">
+  <% @categories.each do |category| %>
+      <div class="col-xs-6 col-md-3">
+        <button type="button" class="btn btn-default btn-lg btn-block myBtn"><%= link_to category.category_name, category, class: "font" %>
+        </button>
+      </div>
+  <% end %>
+</div>

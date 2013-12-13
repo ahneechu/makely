@@ -1,4 +1,14 @@
-<h1>Listing stores</h1>
+<div class="cause_container">
+  <% @stores.each do |store| %>
+      <div class="col-xs-6 col-md-3">
+        <button type="button" class="btn btn-default btn-lg btn-block myBtn"><%= link_to store.store_name, store_products_path(store.id), class: "font" %>
+        </button>
+      </div>
+  <% end %>
+</div>
+
+
+<!-- <h1>Listing stores</h1>
 
 <table class="table table-hover">
   <thead>
@@ -10,19 +20,18 @@
   </thead>
 
   <tbody>
-    <% @stores.each do |store| %>
+    <%#@stores.each do |store| %>
 
       <tr>
-        <td colspan="2"><%= store.store_name %></td>
-        <!-- <td></td><td></td><td></td><td></td><td></td><td></td><td></td> -->
-        <td><%= link_to 'Show', store %></td>
-        <td><%= link_to 'Edit', edit_store_path(store) %></td>
-        <td><%= link_to 'Destroy', store, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td colspan="2"><%# store.store_name %></td>
+        <td><%# link_to 'Show', store %></td>
+        <td><%# link_to 'Edit', edit_store_path(store) %></td>
+        <td><%# link_to 'Destroy', store, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    <% end %>
+    <%#end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New store', new_store_path, class: 'btn btn-default' %>
+ -->
+<%# link_to 'New store', new_store_path, class: 'btn btn-default' %>

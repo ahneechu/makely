@@ -1,13 +1,23 @@
+<div class="form_container">
+
 <p id="notice"><%= notice %></p>
 
 <h1>Welcome Store!</h1>
 
+<h2>Store Name</h2>
 <%= @store.store_name %></br>
+
+<h2>Store Info</h2>
 <%= @store.store_description %></br>
+<!-- how to pull up cause name? -->
 <%# @store.cause_name %></br>
 
-<%= link_to 'Edit', edit_store_path(@store) %> 
+<%= link_to 'Edit', edit_store_path(@store), class: 'btn btn-default' %> 
 
 <!-- this link redirects to /stores/:store_id/products/new -->
-<%= link_to 'Create a product', new_store_product_path(@store.id) %>
+<%= link_to 'Create a product', new_store_product_path(@store.id), class: 'btn btn-default' %>
+
+
+</br><p>store id:<%= @store.id%></p>
+</div>
 

@@ -4,9 +4,16 @@ Makely::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
+  resources :authentications
+  resources :seller_authentications
   resources :sellers
+  resources :causes
+  resources :categories
+  resources :images
+  resources :line_items
+  resources :finalizedorders
 
-
+  get '/products/all' => 'products#all_products'
   resources :stores do
     resources :products
   end
@@ -15,13 +22,8 @@ Makely::Application.routes.draw do
     resources :orders
   end
 
-  resources :line_items
-
-  resources :authentications
-
-  resources :seller_authentications
-
-  resources :finalizedorders
+  # root 'static_pages#home'
+  root 'products#all_products'
 
 
 

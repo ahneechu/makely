@@ -1,0 +1,11 @@
+<!-- <h1>Listing Causes</h1> -->
+
+<div class="cause_container">
+  <% @causes.each do |cause| %>
+      <div class="col-xs-6 col-md-3">
+        <button type="button" class="btn btn-default btn-lg btn-block myBtn"><%= link_to cause.cause_name, cause, class: "font" %>
+        </button>
+      </div>
+  <% end %>
+</div>
+

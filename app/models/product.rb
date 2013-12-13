@@ -1,6 +1,7 @@
 class Product < ActiveRecord::Base
   belongs_to :category
   belongs_to :store
+  has_many :images
 
   has_many :line_items
 

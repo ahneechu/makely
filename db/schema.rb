@@ -11,7 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20131213041622) do
+# ActiveRecord::Schema.define(version: 20131211224833) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +76,36 @@ ActiveRecord::Schema.define(version: 20131213041622) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "delayed_jobs", force: true do |t|
+    t.integer  "priority",   default: 0, null: false
+    t.integer  "attempts",   default: 0, null: false
+    t.text     "handler",                null: false
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.string   "queue"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
+
+  create_table "images", force: true do |t|
+    t.string   "direct_upload_url"
+    t.string   "upload_file_name"
+    t.string   "upload_content_type"
+    t.integer  "upload_file_size"
+    t.datetime "upload_updated_at"
+    t.boolean  "processed",           default: false, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "product_id"
+  end
+
+  add_index "images", ["product_id"], name: "index_images_on_product_id", using: :btree
 
   create_table "line_items", force: true do |t|
     t.integer  "product_quantity_ordered"

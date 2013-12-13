@@ -3,17 +3,23 @@
 <head>
   <title>Makely</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
+
 <body>
 
  <%= render 'layouts/header' %>
+ <%= render 'static_pages/home' %>
 
 <div class="container">
 	<% flash.each do |name, msg| %>
 	      <%= content_tag :div, msg, class: name %>
 	    <% end %>
+      
 <%= yield %>
 
    <br/>
@@ -21,7 +27,7 @@
     <br/>
     Customer Email: <%= current_customer_user.customer_email if current_customer_user%>
     <br/>
-	<br/>
+	 <br/>
     Seller id: <%= current_user.id if current_user %>
     <br/>
     Seller Email: <%= current_user.email if current_user %>
@@ -30,5 +36,5 @@
 
 </div>
 
-</body>
+  </body>
 </html>
