@@ -1,9 +1,7 @@
 class ProductsController < ApplicationController
   include CurrentOrder
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-  # before_action :set_order, only: [:index, :show, :edit, :update, :destroy]
   before_action :set_order, only: [:edit, :update, :destroy]
-
 
   # GET /store/:store_id/products
   # GET /store/:store_id/products.json

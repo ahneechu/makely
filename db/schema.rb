@@ -106,7 +106,7 @@ ActiveRecord::Schema.define(version: 20131213041622) do
   add_index "images", ["product_id"], name: "index_images_on_product_id", using: :btree
 
   create_table "line_items", force: true do |t|
-    t.integer  "product_quantity_ordered"
+    t.integer  "product_quantity_ordered", default: 1
     t.integer  "order_id"
     t.integer  "product_id"
     t.datetime "created_at"

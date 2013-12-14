@@ -11,6 +11,8 @@ class SellersController < ApplicationController
   	# GET /sellers/1.json
 	def show
 		@seller = Seller.find(params[:id])
+		@store = Seller.find(set_seller).store
+
 	end
 
 	# GET /sellers/new

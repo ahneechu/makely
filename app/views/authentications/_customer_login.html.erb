@@ -1,0 +1,7 @@
+<div class="email-form form-inline">
+  <%= form_for Customer.new, {url:"/authentications", method:"post"} do |custr| %>
+  <%= custr.text_field :customer_email, placeholder: "email"%>
+  <%= custr.password_field :customer_password, placeholder: "password"%>
+  <%= custr.submit "Log In", class: "btn btn-default" %>
+  <%end%>
+</div>

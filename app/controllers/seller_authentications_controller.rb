@@ -40,7 +40,7 @@ class SellerAuthenticationsController < ApplicationController
 	def destroy
 		session[:user_id] = nil
 		
-		redirect_to new_seller_authentication_url,
+		redirect_to root_url,
 	  	notice: "You signed out."
 		
 	end

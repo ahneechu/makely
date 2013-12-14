@@ -20,7 +20,6 @@ body{
 /*top navbar*/
 .navbar{
 	border-bottom: 10px solid #EEA9B8;
-	/*margin-right: -20px;*/
 	padding-right: 50px; 
 }
 
@@ -29,8 +28,28 @@ body{
 	font-size: 30px;
 }
 
+.nav_font{
+	font-family: 'Alegreya Sans SC', sans-serif;
+	font-size: 30px;
+	padding: 10px;
+	padding-top: 10px;
+}
+
+#top-nav{
+	font-family: 'Carrois Gothic SC', sans-serif;
+	font-size: 20px;
+}
+	
+
+.email-form {
+	font-family: 'Carrois Gothic SC', sans-serif;
+	font-size: 20px;
+	padding-top: 10px;
+	float: right;
+}
+
 /*mid-navbar - centering mid-navbar text*/
-.navbar-nav{
+#mid-nav{
 	padding-left: 25%;
 	a{
 		/*font-family: 'Bad Script', cursive;*/

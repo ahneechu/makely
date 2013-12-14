@@ -9,7 +9,6 @@ before_action :authenticate_customer_user, only: [:destroy]
 	def new
 
 		if current_customer_user
-			# redirect_to customers_url
 			redirect_to root_url
 		else
 			@customer = Customer.new
@@ -32,7 +31,6 @@ before_action :authenticate_customer_user, only: [:destroy]
 			if customer.authenticate(params[:customer][:customer_password])  
 			session[:customer_user_id] = customer.id
 			
-			# redirect_to customer
 			redirect_to root_url
 
 		    end
@@ -54,7 +52,7 @@ before_action :authenticate_customer_user, only: [:destroy]
 
 		session[:order_id] = nil
 
-		redirect_to new_authentication_url,
+		redirect_to root_url,
 		  notice: "You signed out."
 	end
 
