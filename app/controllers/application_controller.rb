@@ -22,11 +22,11 @@ class ApplicationController < ActionController::Base
 
 
 	def authenticate_user
-		redirect_to seller_authentications_new_url unless current_user
+		redirect_to new_seller_authentication_url unless current_user
 	end
 
 	def authenticate_customer_user
-		redirect_to authentications_new_url unless current_customer_user
+		redirect_to new_authentication_url unless current_customer_user
 	end
 
 

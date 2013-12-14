@@ -2,6 +2,8 @@
   <div class="col-sm-6">
     <div class ="errors">
 
+
+
     <%= form_for [@product.store, @product], html: {role: "form"} do |f| %>
       <% if @product.errors.any? %>
         <div id="error_explanation">
@@ -21,23 +23,31 @@
       <%=collection_select(:product, :category_id, Category.all, :id, :category_name, prompt: 'Please select a category') %>
       </p>
 
-      <div class="form-group">
-      <%= f.label :product_name %></br>
-      <%= f.text_field :product_name, id:"product_name", class: 'form-control' %>
-      <%= @product.errors[:product_name].join(", ") %>
-      </div>
 
-      <div class="form-group">
-      <%= f.label :product_description %></br>
-      <%= f.text_area :product_description, rows: 8, id:"product_description", class: 'form-control' %>
-      <%= @product.errors[:product_description].join(", ") %>
-      </div>
+     
+      </div>   <!-- Was this div missing? -->
 
-      <div class="form-group">
-      <%= f.label :product_price %></br>
-      <%= f.text_field :product_price, id:"product_price", class: 'form-control' %>
-      <%= @product.errors[:product_price].join(", ") %>
-      </div>
+
+
+          <div class="form-group">
+          <%= f.label :product_name %></br>
+          <%= f.text_field :product_name, id:"product_name", class: 'form-control' %>
+          <%= @product.errors[:product_name].join(", ") %>
+          </div>
+
+
+          <div class="form-group">
+          <%= f.label :product_description %></br>
+          <%= f.text_area :product_description, rows: 8, id:"product_description", class: 'form-control' %>
+          <%= @product.errors[:product_description].join(", ") %>
+          </div>
+
+
+          <div class="form-group">
+          <%= f.label :product_price %></br>
+          <%= f.text_field :product_price, id:"product_price", class: 'form-control' %>
+          <%= @product.errors[:product_price].join(", ") %>
+          </div>
 
       <!-- <div class="form-group">
       <%# f.label :product_image %></br>
@@ -47,28 +57,15 @@
       </div> -->
 
     
-      <div>
-      <%= f.submit :save, class: 'btn btn-default' %>
-      </div>
+            <div>
+            <%= f.submit :save, class: 'btn btn-default' %>
+            </div>
 
     </div>
     <% end %>
 
+
     
-
-    <script id="template-upload" type="text/x-tmpl">
-    <div id="upload_{%=o.unique_id%}" class="upload">
-    <div id="upload-image"></div>
-    <div id="upload-image"></div>
-    <div id="upload-image"></div>
-    <div id="upload-image"></div>
-      <div class="progress progress-striped active"><div class="bar" style="width: 0%"></div>
-    </div>
-    </script>
-
-
-
-
 
 
     </div>

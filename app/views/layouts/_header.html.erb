@@ -21,6 +21,13 @@
     <ul class="nav navbar-nav navbar-right">
       <li><%= link_to "Create a Store", new_seller_path %></li>
       <li><%= link_to "User Sign Up", new_customer_path %></li>
+      <% if current_customer_user %>
+          <li><a href="/customers/<%=current_customer_user.id %>/edit">Customer Settings</a></li>
+          <li><%= link_to "Customer Logout", "/authentications/:id", method: "delete" %></li>
+          <% else %>
+          <li><a href="/authentications/new">Customer Login</a></li>
+          <li><a href="/customers/new">Customer Sign-up</a></li>
+      <% end %>
      
       <!-- <li><a href="#">User Sign In</a></li> -->
       <li class="dropdown">
