@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   include CurrentOrder
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-  before_action :set_order, only: [:index, :show, :edit, :update, :destroy]
+  # before_action :set_order, only: [:index, :show, :edit, :update, :destroy]
 
 
   # GET /store/:store_id/products
@@ -38,8 +38,8 @@ class ProductsController < ApplicationController
   # POST /store/:store_id/products.json
   def create
     # logger.info params[:images][:direct_upload_url]
-    # store = Store.find(params[:store_id])
-    # @product = store.products.create(product_params)
+    store = Store.find(params[:store_id])
+    @product = store.products.create(product_params)
     # @image = @product.images.create!(image_params)
 
     respond_to do |format|
