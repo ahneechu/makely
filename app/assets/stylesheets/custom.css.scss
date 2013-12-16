@@ -1,15 +1,11 @@
 @import "bootstrap";
-@import url(http://fonts.googleapis.com/css?family=Alegreya+Sans+SC);
-@import url(http://fonts.googleapis.com/css?family=Bad+Script|Paprika|Carrois+Gothic+SC);
+/*@import url(http://fonts.googleapis.com/css?family=Alegreya+Sans+SC);*/
+@import url(http://fonts.googleapis.com/css?family=Alegreya+Sans+SC|Bad+Script|Paprika|Carrois+Gothic+SC|Architects+Daughter);
 
 body{ 
 	padding-top: 70px; 
-	background: url(image-path('lyonnette.png'));
-	
-	h1 h2 h3 h4 p{
-		font-family: 'Alegreya Sans SC', sans-serif;
-
-	}
+	/*background: url(image-path('lyonnette.png'));*/
+	background: url(image-path('pw_maze_white.png'));
 }
 
 .container{
@@ -19,7 +15,7 @@ body{
 
 /*top navbar*/
 .navbar{
-	border-bottom: 10px solid #EEA9B8;
+	border-bottom: 10px solid #9A7E8C;
 	padding-right: 50px; 
 }
 
@@ -41,11 +37,64 @@ body{
 }
 	
 
-.email-form {
-	font-family: 'Carrois Gothic SC', sans-serif;
+.login_form {
+	font-family: 'Architects Daughter', cursive;
 	font-size: 20px;
 	padding-top: 10px;
 	float: right;
+}
+
+#current_user{
+	margin: 10px;
+	margin-top: 15px;
+	color: gray;
+	/*background-color: red;*/
+}
+
+#logout_btn{
+	/*background-color: red;*/
+	height: 30px;
+	margin-top: 10px;
+	/*padding-bottom: 20px;*/
+}
+
+/*#store_icon{
+  display: block;
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  background: url(store_icon.svg);
+  background-size: 50px 50px;
+}
+
+#user_icon{
+  display: block;
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  background: url(user_icon.svg);
+  background-size: 50px 50px;
+}*/
+
+#cart_icon{
+  display: block;
+  width: 40px;
+  height: 30px;
+  margin-top: -10px;
+  background: url(cart_icon.svg);
+  /*background-color: red;*/
+  background-size: 40px 30px;
+  color: gray;
+}
+
+#seller_icon{
+  display: block;
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  padding-top: 20px;
+  background: url(seller_icon.svg);
+  background-size: 40px 40px;
 }
 
 /*mid-navbar - centering mid-navbar text*/
@@ -92,17 +141,46 @@ body{
 .form_container{
 	width: 600px;
 	height: 800px;
-	margin: 0 auto;
-	padding: 10px auto;
-	background-color: #e7e7e7;
+	margin: 10px auto;
+	padding: 20px 10px 10px;
+	border: 2px solid #c0c0c0;
+	border-radius: 8px;
+	/*background-color: #e7e7e7;*/
+	background-color: gray;
+		h1{
+			
+			font-family: 'Architects Daughter', cursive;
+			color: white;
+			text-align: center;
+			padding-top: 20px;
+			padding-bottom: 10px;
+		}
+
 }
 
 .row{
-	background-color: #e7e7e7;
-	margin: 10px 20px;
-	padding: 10px auto;
+	font-family: 'Architects Daughter', cursive;
+	width: 75%;
+	/*background-color: #e7e7e7;*/
+	margin: 10px auto;
+	padding: 40px;
+	/*border: 2px solid #c0c0c0;*/
+	border-radius: 6px;
+	color: white;
+	h2, h4, p{
+		font-family: 'Alegreya Sans SC', sans-serif;
+
+	}
+	h3{
+		font-family: 'Architects Daughter', cursive;
+		
+	}
 }
 
+#error_explanation{
+
+
+}
 
 /*causes and categories buttons*/
 .cause_container{
@@ -117,6 +195,12 @@ body{
 	border: 2px solid #c0c0c0;
 }
 
+#cart_btn{
+	width: 70%;
+	margin-top: 25px;
+
+}
+
 .myBtn_sm{
 	/*margin-bottom: 30px;*/
 	border-radius: 0;
@@ -125,6 +209,11 @@ body{
 
 .font{
 	font-family: 'Alegreya Sans SC', sans-serif;
+}
+
+.script_font{
+	font-family: 'Architects Daughter', cursive;
+
 }
 
 
@@ -344,6 +433,64 @@ body{
 	margin-left: 40px;
 
 }
+
+.shopping_container{
+	width: 90%;
+	height: 700px;
+	margin: 10px auto;
+	padding: 20px 10px 10px;
+	border: 2px solid #c0c0c0;
+	border-radius: 8px;
+	background-color: #e7e7e7;
+	/*background-color: gray;*/
+	h1{
+		font-family: 'Architects Daughter', cursive;
+		text-align: center;
+	}
+	p{
+		text-align: right;
+		padding-right: 90px;
+	}
+	th{
+		font-family: 'Alegreya Sans SC', sans-serif;
+		font-size: 20px;
+	}
+	td{
+		font-family: 'Architects Daughter', cursive;
+		font-size: 16px;
+	}
+}
+.cart_btn{
+	/*width: 30%;*/
+	margin-right: 30px; 
+	padding: 10px;
+	float: right;
+	display: inline;
+	font-family: 'Alegreya Sans SC', sans-serif;
+	/*background-color: red;*/
+}
+
+.checkout_form{
+	width: 80%;
+	margin: 20px auto;
+	/*background-color: gray;*/
+	h1{
+		font-family: 'Architects Daughter', cursive;
+		text-align: center;
+	}
+	h3{
+		font-family: 'Alegreya Sans SC', sans-serif;
+		color: gray;
+	}
+}
+
+#total_order{
+	margin-right: 50px;
+	text-align: right;
+	font-family: 'Architects Daughter', cursive;
+	font-size: 20px;
+}
+
 
 /*image upload*/
 

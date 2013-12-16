@@ -1,5 +1,5 @@
-<div class="row">
-  <div class="col-sm-6">
+<div class=".col-xs-12 .col-sm-6 .col-md-8">
+  <div class="row">
     <div class ="errors">
      
       <%= form_for @customer, html: {role: "form"} do |f| %>
@@ -17,25 +17,25 @@
 
         <div class="actions">
           <div class="form-group">
-        	<%= f.label :customer_username %></br>
+        	<h3><%= f.label :customer_username %></h3>
         	<%= f.text_field :customer_username, id:"customer_username", class: 'form-control' %>
           <%= @customer.errors[:customer_username].join(", ") %>
           </div>
 
           <div class="form-group">
-        	<%= f.label :customer_email %></br>
+        	<h3><%= f.label :customer_email %></h3>
         	<%= f.text_field :customer_email, id:"customer_email", class: 'form-control' %>
           <%= @customer.errors[:customer_email].join(", ") %>
           </div>
 
           <div class="form-group">
-        	<%= f.label :customer_password %></br>
+        	<h3><%= f.label :customer_password %></h3>
         	<%= f.password_field :customer_password, id:"customer_password", class: 'form-control' %>
           <%= @customer.errors[:customer_password].join(", ") %>
           </div>
           
           <div class="form-group">
-        	<%= f.label :password_confirmation %></br>
+        	<h3><%= f.label :password_confirmation %></h3>
         	<%= f.password_field :password_confirmation, id:"password_confirmation", class: 'form-control' %>
           <%= @customer.errors[:password_confirmation].join(", ") %>
           </div>

@@ -10,13 +10,14 @@
 		  <div class="col-xs-6 col-md-3">
 		    <div class="product_img">
 		    	<div class="border">
-				<h4><span class="font"><%= p.product_name %></span></h4></br>
-				<p><span class="font"><%= p.product_description %></span></p></br>
-				<span class="price"><%= number_to_currency(p.product_price) %></span></br>
-				<%= link_to "show product", store_product_url(p.store.id, p.id) %>
-				</div>
+					<h4 class="font"><%= p.product_name %></h4></br>
+					<p class="font"><%= p.product_description %></p></br>
+					<span class="price"><%= number_to_currency(p.product_price) %></span></br>
+					<%= link_to "show product", store_product_url(p.store.id, p.id) %>
+				 </div>
 			</div>
 		  </div>
 		</div>
 	<% end %>
+</div>
 </div>

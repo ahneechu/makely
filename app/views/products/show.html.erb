@@ -66,10 +66,10 @@
 		<!-- SHOPPING CART -->
 		<div class="cart">
 			<h2 class="font">Shopping Cart</h2>
-			<div class="cart_border">
-				<button type="button" class="btn btn-default btn-lg btn-block myBtn">
-				<%= link_to 'Add to Cart', line_items_path(product_id: @product) %>
-				</button>
+				<div class="cart_border">
+				<!-- <button type="button" class="btn btn-default btn-lg btn-block myBtn"> -->
+				<%= button_to 'Add to Cart', line_items_path(product_id: @product), id: "cart_btn", class: "btn btn-default myBtn font" %>
+				<!-- </button> -->
 			</div>
 		</div>
 
@@ -107,6 +107,8 @@
 	    		</div>
 		</div>
 	</div>
+</div>
+</div>
 </div>
 
 

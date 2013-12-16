@@ -1,28 +1,44 @@
+<div class = "shopping_container">
+<h1>Your Shopping Cart</h1>
+<div class="checkout_form">
 
-<h2>Your Shopping Cart</h1>
-<table>
+<table class="table table-hover">
+<thead>
+    <tr>
+      <th colspan="2">Quantity</th>
+      <th>Product Name</th>
+      <th>Product Price</th>
+      <th>Total Price</th>
+    </tr>
+  </thead>
+
+  <tbody>
 	<% @order.line_items.each do |item| %>
 	<tr>
-		<td><%= item.product_quantity_ordered %> &times; <%= item.product.product_name %></td>
+		<td colspan="2"><%= item.product_quantity_ordered %> &times; <%= item.product.product_name %></td>
 		<!-- <li><%# item.product.product_name %></li> -->
 		<td><%= item.product.product_description %></td>
 		<td><span class="price">@<%= number_to_currency(item.product.product_price) %> (each) = </span></td>
 		<td><span class="total_price"><%= number_to_currency(item.total_price) %></span></td>
 		</br>
 	</tr>
-	
+	<% end %>
+
+  </tbody>
 </table>
-<% end %>
-</br>
-Your Order Total = <%= number_to_currency(@order.total_price) %>
 </br>
 </br>
+
+<div id="total_order">Your Order Total = <%= number_to_currency(@order.total_price) %></div>
+	
 </br>
-<%= button_to 'Checkout', new_finalizedorder_path, method: :get %>
-</br>
-<%= button_to 'Empty Cart', @orders, method: :delete, data: {confirm: 'Are you sure?'} %>
-</br>
-</br>
+
+
+
+<div class="cart_btn"><%= button_to 'Checkout', new_finalizedorder_path, method: :get, class: "btn btn-default" %></div>
+
+<div class="cart_btn"><%= button_to 'Empty Cart', @orders, method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-default" %></div>
+
 <%= link_to 'Back', customer_orders_path %>
 
 <!-- <h1>Order Show</h1> -->
@@ -40,5 +56,6 @@ Your Order Total = <%= number_to_currency(@order.total_price) %>
   <strong>Order Date</strong>
   <%# @order.ordered_date %>
 </p> -->
-
+</div>
+</div>
 
