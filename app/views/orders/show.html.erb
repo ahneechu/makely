@@ -16,34 +16,27 @@
 	<% @order.line_items.each do |item| %>
 	<tr>
 		<td colspan="2"><%= item.product_quantity_ordered %> &times; <%= item.product.product_name %></td>
-		<!-- <li><%# item.product.product_name %></li> -->
 		<td><%= item.product.product_description %></td>
 		<td><span class="price">@<%= number_to_currency(item.product.product_price) %> (each) = </span></td>
-
-		<!-- This should be working -->
 		<td><span class="total_price"><%= number_to_currency(item.total_price) %></span></td>
 		</br>
 	</tr>
 	<% end %>
+  <tr>
+  <td></td><td></td><td></td><td id="total_order">Your Order Total</td><td id="total_order"><%= number_to_currency(@order.total_price) %></td>
+  </tr>
+
 
   </tbody>
 </table>
-<% end %>
-<!-- </br>
-This should be working
-Your Order Total = <%# number_to_currency(@order.total_price) %>
-</br>
-</br> -->
 
-<div id="total_order">Your Order Total = <%= number_to_currency(@order.total_price) %></div>
+<!-- <div id="total_order">Your Order Total = <%# number_to_currency(@order.total_price) %></div> -->
 	
 </br>
 
+<div class="cart_btn"><%= button_to 'Checkout', new_finalizedorder_path, method: :get, class: "btn btn-default btn-lg myBtn font" %></div>
 
-
-<div class="cart_btn"><%= button_to 'Checkout', new_finalizedorder_path, method: :get, class: "btn btn-default" %></div>
-
-<div class="cart_btn"><%= button_to 'Empty Cart', @orders, method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-default" %></div>
+<div class="cart_btn"><%= button_to 'Empty Cart', @orders, method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-default btn-lg myBtn font" %></div>
 
 <%= link_to 'Back', customer_orders_path %>
 

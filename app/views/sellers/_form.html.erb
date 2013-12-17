@@ -31,18 +31,18 @@
 
           <div class="form-group">
         	<h3><%= f.label :password %></h3>
-        	<%= f.password_field :password, id:"password", class: 'form-control' %>
+        	<%= f.password_field :password, id:"password", rows: 2, class: 'form-control', rows: 2 %>
           <%= @seller.errors[:password].join(", ") %>
           </div>
           
           <div class="form-group">
         	<h3><%= f.label :password_confirmation %></h3>
-        	<%= f.password_field :password_confirmation, id:"password_confirmation", class: 'form-control' %>
+        	<%= f.password_field :password_confirmation, id:"password_confirmation", rows: 2, class: 'form-control' %>
           <%= @seller.errors[:password_confirmation].join(", ") %>
           </div>
 
           <div>
-        	<%= f.submit :save, class: 'btn btn-default' %>
+        	<%= f.submit :save, class: 'btn btn-default font' %>
           </div>
       </div>
       <% end %>

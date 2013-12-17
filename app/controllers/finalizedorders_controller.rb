@@ -3,7 +3,7 @@ class FinalizedordersController < ApplicationController
 include CurrentOrder
 
 before_action :set_order, only: [:new, :create]
-before_action :set_finalizedorder, only: [:show, :edit, :update, :destroy]
+before_action :set_finalizedorder, only: [:edit, :update, :destroy]
 
 	def new
 		if @order.line_items.empty?
@@ -22,13 +22,14 @@ before_action :set_finalizedorder, only: [:show, :edit, :update, :destroy]
 
 	def show
 		@finalizedorder = Finalizedorder.find(params[:id])
+		@customer = current_customer_user
 	end
 
 	def create
 		@finalizedorder = Finalizedorder.new(params.require(:finalizedorder).permit(:customer_username, :customer_email, :customer_name, :customer_address, :customer_city, :customer_state, :customer_zipcode, :customer_phone, :pay_type, :CC_number, :CC_name, :security_code, :CC_expiration_date, :customer_shipping_address, :customer_shipping_city, :customer_shipping_state, :customer_shipping_zipcode))
 		
 		if @finalizedorder.save
-			redirect_to finalizedorders_url
+			redirect_to @finalizedorder
 		end
 
 	end
