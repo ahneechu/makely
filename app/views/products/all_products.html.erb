@@ -10,13 +10,15 @@
 		  <div class="col-xs-6 col-md-3">
 		    <div class="product_img">
 		    	<div class="border">
-		    	<span class="prod_pic"><%= link_to(image_tag(p.picture.url(:thumb)), store_product_path(p.store.id, p.id)) %></span>
-		    		<span class="caption">
-							<h4 class="font"><%= p.product_name %></h4></br>
-							<p class="font"><%= p.product_description %></p></br>
-							<p class="price"><%= number_to_currency(p.product_price) %></p></br>
-							<%# link_to "show product", store_product_url(p.store.id, p.id) %>
-						</span>
+			    	<span class="prod_pic">
+			    	<%= link_to(image_tag(p.picture.url(:thumb)), store_product_path(p.store.id, p.id)) %>
+			    	</span>
+			    	<span class="caption">
+						<h4 class="font"><%= p.product_name %></h4></br>
+						<p class="font"><%= p.product_description %></p></br>
+						<p class="price"><%= number_to_currency(p.product_price) %></p></br>
+						<%# link_to "show product", store_product_url(p.store.id, p.id) %>
+					</span>
 				 </div>
 			</div>
 		  </div>

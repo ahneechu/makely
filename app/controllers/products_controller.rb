@@ -40,6 +40,7 @@ class ProductsController < ApplicationController
     # logger.info params[:images][:direct_upload_url]
     store = Store.find(params[:store_id])
     @product = store.products.create(product_params)
+    @product.picture = params[:product][:picture] 
     # @image = @product.images.create!(image_params)
 
     respond_to do |format|

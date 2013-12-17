@@ -248,8 +248,8 @@ body{
 	position: relative;
 	font-family: 'Alegreya Sans SC', sans-serif;
 	/*width: 100%;
-	height: auto;*/
-	/*overflow: hidden;*/
+	height: auto;
+	overflow: hidden;*/
 	width: 175px;
 	height: 175px;
 	margin-left: 12px;
@@ -267,11 +267,17 @@ body{
 	width: 100%;
 	height: auto;
 	overflow: hidden;
+	background-color: #e7e7e7;
 	-webkit-transition: all 300ms ease-out;  
     -moz-transition: all 300ms ease-out;  
     -o-transition: all 300ms ease-out;  
     -ms-transition: all 300ms ease-out;  
     transition: all 300ms ease-out;  
+	    img{
+	    	width: 175px;
+	    	height: 174px;
+
+	    }
 	}
 
 .prod_pic:hover{
