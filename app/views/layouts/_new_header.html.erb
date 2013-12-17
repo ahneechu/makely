@@ -13,51 +13,52 @@
   <!-- Collect the nav links, forms, and other content for toggling -->
 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav">
-      <li><a href="/sellers/new"><span class="glyphicon glyphicon-home"></span></a></li>
-      <li><a href="/customers/new"><span class="glyphicon glyphicon-user"></span></a></li>
+      <li class="nav_icon"><a href="/sellers/new"><i class="glyphicon glyphicon-home" rel="tooltip" data-toggle="tooltip" title="Create a Store" ></i></a></li>
+      <li class="nav_icon"><a href="/customers/new"><i class="glyphicon glyphicon-user" rel="tooltip" data-toggle="tooltip" title="New User Signup" ></i></a></li>
     </ul>
-    <!-- <div class="navbar-form navbar-left form-inline">
-      <div class="form-group">
-       
-      </div>
-    </div> -->
     
     <ul id="top-nav" class="nav navbar-nav navbar-right form-inline">
-      <!-- <li id="store_icon"><a href="/sellers/new"><%# image_tag "store_icon.svg" %><%# link_to "Create a Store", new_seller_path %></a></li>
-      <li id="user_icon"><a href="/customers/new"><%# link_to "User Sign Up", new_customer_path %></li> -->
+      
       <% if current_customer_user %>  
-          <li><a href="/"><span id="cart_icon"></span></a></li>
-          <li id="current_user" class="script_font"><%= current_customer_user.customer_email %></li>
+          <li><a href="/"><i class="glyphicon glyphicon-shopping-cart" rel="tooltip" data-toggle="tooltip" title="Shopping Cart" ></i></a></li>
+          <li id="current_user" class="lowercase_font"><%= current_customer_user.customer_email %></li>
           <li><%= link_to "logout", "/authentications/_", method: "delete", id: "logout_btn", class: "btn btn-default btn-xs" %></li>          
       <% else %>
           <li><%= render "authentications/customer_login" %></li>
       <% end %>  
      
-      <!-- <li id="seller_icon" > -->
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"><b class="caret"></b></span></a>
         <ul class="dropdown-menu">
-          <li ><a href="/seller_authentications/new">Seller Login</a></li>
+          <li><a href="/seller_authentications/new">Seller Login</a></li>
           <% if current_user %>
           <li><a href="/sellers/<%=current_user.id %>/edit">Edit Seller Info</a></li>
-          <!-- <li><a href="#">Store Info</a></li> -->
           <li><%= link_to "Store Info", my_store_path %></li>
-          <!-- <li><a href="#">Product Info</a></li> -->
           <li><%= link_to "Store Products", products_sellers_index_path(current_user.store_id) %></li>
           <li class="divider"></li>
           <li><%= link_to "Seller Logout", "/seller_authentications/:id", method: "delete" %></li>
-
-
-          <!-- <li><a href="/customers/<%#current_user.id %>/edit">Edit Seller Info</a></li>
-          <li><a href="#">Store Info</a></li>
-          <li><a href="#">Product Info</a></li>
-          <li class="divider"></li>
-          <li><%# link_to "Seller Logout", "/seller_authentications/:id", method: "delete" %></li> -->
           
         </ul>
         <% end %>
       </li>
-      <!-- </li> -->
     </ul>
   </div><!-- /.navbar-collapse -->
 </nav>
+
+<script>
+  $(document).ready(function() {  
+    $('.navbar-brand').hover(
+    function() {
+        var $this = $(this); // caching $(this)
+        $this.data('make.ly', $this.text());
+        $this.text("made with love");
+    },
+    function() {
+        var $this = $(this); // caching $(this)
+        $this.text($this.data('make.ly'));
+    }
+);
+    $("[rel=tooltip]").tooltip({ placement: 'bottom'});
+
+  });
+</script>

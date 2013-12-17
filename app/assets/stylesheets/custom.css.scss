@@ -1,12 +1,6 @@
 @import "bootstrap";
 /*@import url(http://fonts.googleapis.com/css?family=Alegreya+Sans+SC);*/
-@import url(http://fonts.googleapis.com/css?family=Alegreya+Sans+SC|Bad+Script|Paprika|Carrois+Gothic+SC|Architects+Daughter);
-@font-face {
-  font-family: 'A Beat by Kai';    
-  src: url(image-path('abeatbykaiRegular.otf'));
-  font-weight: normal;
-  font-style: normal;
- }
+@import url(http://fonts.googleapis.com/css?family=Alegreya+Sans+SC|Alegreya+Sans|Carrois+Gothic+SC);
 
 body{ 
 	padding-top: 70px; 
@@ -23,11 +17,15 @@ body{
 .navbar{
 	border-bottom: 10px solid #9A7E8C;
 	padding-right: 50px; 
+	ul{
+		font-family: 'Alegreya Sans SC', sans-serif;
+	}
 }
 
 .navbar-brand{
 	font-family: 'Alegreya Sans SC', sans-serif;
 	font-size: 30px;
+	margin-right: 10px;
 }
 
 .nav_font{
@@ -37,6 +35,11 @@ body{
 	padding-top: 10px;
 }
 
+.nav_icon{
+	font-size: large;
+	width: 4em;
+}
+
 #top-nav{
 	font-family: 'Carrois Gothic SC', sans-serif;
 	font-size: 20px;
@@ -44,7 +47,7 @@ body{
 	
 
 .login_form {
-	font-family: 'Architects Daughter', cursive;
+	font-family: 'Alegreya Sans', sans-serif;
 	font-size: 20px;
 	padding-top: 10px;
 	float: right;
@@ -64,44 +67,12 @@ body{
 	/*padding-bottom: 20px;*/
 }
 
-/*#store_icon{
-  display: block;
-  width: 50px;
-  height: 50px;
-  padding: 10px;
-  background: url(store_icon.svg);
-  background-size: 50px 50px;
+.dropdown{
+	li{
+		font-family: 'Alegreya Sans', sans-serif;
+	}
 }
 
-#user_icon{
-  display: block;
-  width: 50px;
-  height: 50px;
-  padding: 10px;
-  background: url(user_icon.svg);
-  background-size: 50px 50px;
-}*/
-
-#cart_icon{
-  display: block;
-  width: 30px;
-  height: 20px;
-  /*margin-top: -10px;*/
-  background: url(cart.png);
-  /*background-color: red;*/
-  background-size: 30px 20px;
-  color: gray;
-}
-
-#seller_icon{
-  display: block;
-  width: 40px;
-  height: 40px;
-  padding: 10px;
-  padding-top: 20px;
-  background: url(seller_icon.svg);
-  background-size: 40px 40px;
-}
 
 /*mid-navbar - centering mid-navbar text*/
 #mid-nav{
@@ -146,7 +117,7 @@ body{
 
 .form_container{
 	width: 75%;
-	height: 800px;
+	height: 900px;
 	margin: 10px auto;
 	padding: 20px 10px 10px;
 	border: 2px solid #c0c0c0;
@@ -154,14 +125,11 @@ body{
 	/*background-color: #e7e7e7;*/
 	background-color: gray;
 		h1{
-			/*font-family: 'A Beat by Kai', Helvetica; */
-			font-family: Tahoma, Geneva, sans-serif;
+			font-family: 'Alegreya Sans', sans-serif;
 			color: white;
 			text-align: center;
 			padding-top: 20px;
-			/*padding-bottom: 10px;*/
 		}
-
 }
 
 .row{
@@ -178,7 +146,7 @@ body{
 
 	}
 	h3{
-		font-family: Tahoma, Geneva, sans-serif;
+		font-family: 'Alegreya Sans', sans-serif;
 		
 	}
 }
@@ -186,6 +154,11 @@ body{
 #error_explanation{
 
 
+}
+
+#breadcrumb{
+	margin-top: 10px;
+	margin-left: 120px;  
 }
 
 /*causes and categories buttons*/
@@ -217,8 +190,8 @@ body{
 	font-family: 'Alegreya Sans SC', sans-serif;
 }
 
-.script_font{
-	font-family: 'Architects Daughter', cursive;
+.lowercase_font{
+	font-family: 'Alegreya Sans', sans-serif;
 
 }
 
@@ -483,69 +456,73 @@ body{
 
 }
 
+/*checkout*/
+
 .shopping_container{
 	width: 90%;
-	height: 700px;
+	height: 900px;
 	margin: 10px auto;
 	padding: 20px 10px 10px;
 	border: 2px solid #c0c0c0;
 	border-radius: 8px;
 	background-color: #e7e7e7;
-	/*background-color: gray;*/
+	color: gray;
+	/*background-color: white;*/
 	h1{
-		font-family: 'Architects Daughter', cursive;
+		font-family: 'Alegreya Sans SC', sans-serif;
 		text-align: center;
 	}
-	p{
-		text-align: right;
-		padding-right: 90px;
+
+	h2, h4, p{
+		font-family: 'Alegreya Sans SC', sans-serif;
 	}
+	h3{
+		font-family: 'Alegreya Sans', sans-serif;	
+	}
+
 	th{
 		font-family: 'Alegreya Sans SC', sans-serif;
 		font-size: 20px;
 	}
 	td{
-		font-family: 'Architects Daughter', cursive;
+		font-family: 'Alegreya Sans', sans-serif;
 		font-size: 16px;
 	}
 }
 .cart_btn{
-	/*width: 30%;*/
-	margin-right: 30px; 
+	margin-right: 100px; 
 	padding: 10px;
 	float: right;
 	display: inline;
 	font-family: 'Alegreya Sans SC', sans-serif;
-	/*background-color: red;*/
 }
 
 .checkout_form{
 	width: 80%;
 	margin: 20px auto;
-	/*background-color: gray;*/
-	h1{
-		font-family: 'Architects Daughter', cursive;
-		text-align: center;
-	}
-	h3{
-		font-family: 'Alegreya Sans SC', sans-serif;
-		color: gray;
-	}
 }
 
 #total_order{
-	margin-right: 50px;
-	text-align: right;
-	font-family: 'Architects Daughter', cursive;
+	font-family: 'Alegreya Sans SC', sans-serif;
+	font-weight: bold;
 	font-size: 20px;
 }
 
+.order_row{
+	font-family: Tahoma, Geneva, sans-serif;
+	width: 75%;
+	margin: 10px auto;
+	padding: 40px;
+	border-radius: 6px;
+	color: gray;
+	h2, h4, p{
+		font-family: 'Alegreya Sans SC', sans-serif;
 
-/*image upload*/
-
-#uploads_container{
-	width: 200px;
-	height: 200px;
+	}
+	h3{
+		font-family: 'Alegreya Sans', sans-serif;
+		
+	}
 }
 
 

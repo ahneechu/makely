@@ -1,29 +1,31 @@
-<h1>Listing products</h1>
+<div class = "shopping_container">
+  <h1>Listing Products</h1>
+  <div class="checkout_form">
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th colspan="2">Product Name</th>
-      <th>Product Description</th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-
-  <%# cache ['store', Product.latest] do %>
-    <% @products.each do |product| %>
-
+  <table class="table table-hover">
+    <thead>
       <tr>
-        <td colspan="2"><%= product.product_name %></td>
-        <td><%= product.product_description %></td>
-        <td><%# button_to 'Add to Cart', [product.store, product] %></td>
-        <!-- <td><%# button_to 'Add to Cart', line_items_path(product_id: product) %></td> -->
-        <!-- <td><%# button_to 'Add to Cart', line_items_path(product.store, product_id) %></td> -->
+        <th colspan="2">Product Name</th>
+        <th>Product Description</th>
+        <th></th>
+      </tr>
+    </thead>
 
-        <td><%= link_to 'Show', [product.store, product] %></td>
-        <td><%= link_to 'Edit', edit_store_product_path(product.store, product) %></td>
-        <td><%= link_to 'Destroy', [product.store, product], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <tbody>
+
+    <%# cache ['store', Product.latest] do %>
+      <% @products.each do |product| %>
+
+        <tr>
+          <td colspan="2"><%= product.product_name %></td>
+          <td><%= product.product_description %></td>
+          <td><%# button_to 'Add to Cart', [product.store, product] %></td>
+          <!-- <td><%# button_to 'Add to Cart', line_items_path(product_id: product) %></td> -->
+          <!-- <td><%# button_to 'Add to Cart', line_items_path(product.store, product_id) %></td> -->
+
+          <td><%= link_to 'Show', [product.store, product] %></td>
+          <td><%= link_to 'Edit', edit_store_product_path(product.store, product) %></td>
+          <td><%= link_to 'Destroy', [product.store, product], method: :delete, data: { confirm: 'Are you sure?' } %></td>
 
       </tr>
     <% end %>
@@ -33,6 +35,6 @@
   </tbody>
 </table>
 
-<br>
 
-<%# link_to 'New Product', new_store_product_path, class: 'btn btn-default' %>
+  </div>
+</div>

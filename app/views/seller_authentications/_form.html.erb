@@ -17,17 +17,18 @@
 
         <div class="actions">
           <div class="form-group">
-          <%= sellr.label :email %></br>
+          <h3><%= sellr.label :email %></h3>
           <%= sellr.text_field :email, class: 'form-control' %>
           </div>
 
           <div class="form-group">
-            <%= sellr.label :password %>
+            <h3><%= sellr.label :password %></h3>
             <%= sellr.password_field :password, class: 'form-control' %>
           </div>
+          </br>
 
           <div>
-          <%= sellr.submit "Log In", class: 'btn btn-default' %>
+          <%= sellr.submit "Log In", class: 'btn btn-default font' %>
           </div>
       </div>
       <% end %>

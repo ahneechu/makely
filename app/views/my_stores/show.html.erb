@@ -1,17 +1,28 @@
+<div class="form_container">
 
-<h2> <%= @store.store_name %></h2>
-<h3>Store Description</h3></br>
-<h4> <%= @store.store_description %></h4>   </br>
-<!-- how to pull up cause name? -->
-<%# @store.cause_name %></br>
+	<p id="notice"><%= notice %></p>
+	<%= render 'sellers/breadcrumbs' %>
 
-<%= link_to 'Edit', edit_store_path(@store), class: 'btn btn-default' %> 
+	<div class=".col-xs-12 .col-sm-6 .col-md-8">
+	  <div class="row">
 
-<!-- this link redirects to /stores/:store_id/products/new -->
-<%= link_to 'Create a product', new_store_product_path(@store.id), class: 'btn btn-default' %>
+	  	<h2>Store Name:</h2>
+		<h3> <%= @store.store_name %></h3>
 
+		<h2>Store Info:</h2>
+		<h3> <%= @store.store_description %></h3>
+		<!-- how to pull up cause name? -->
+		<%# @store.cause_name %>
 
-</br><p>store id:<%= @store.id%></p>
+		</br></br></br>
+
+		<%= link_to 'Edit', edit_store_path(@store), class: 'btn btn-default' %> 
+		<!-- this link redirects to /stores/:store_id/products/new -->
+		<%= link_to 'Create a product', new_store_product_path(@store.id), class: 'btn btn-default' %>
+
+		</br></br></br><p>store id:<%= @store.id%></p>
+	  </div>
+	</div>
 </div>
 
 
