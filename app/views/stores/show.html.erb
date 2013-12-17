@@ -1,23 +1,32 @@
 <div class="form_container">
 
-<p id="notice"><%= notice %></p>
+	<p id="notice"><%= notice %></p>
+	<%= render 'sellers/breadcrumbs' %>
 
-<h1>Welcome Store!</h1>
+	<div class=".col-xs-12 .col-sm-6 .col-md-8">
+	  <div class="row">
 
-<h2>Store Name</h2>
-<%= @store.store_name %></br>
+		<h1>Welcome <%= @store.store_name %></h1>
 
-<h2>Store Info</h2>
-<%= @store.store_description %></br>
-<!-- how to pull up cause name? -->
-<%# @store.cause_name %></br>
+		<h2>Store Name:</h2>
+		<h3><%= @store.store_name %></h3>
 
-<%= link_to 'Edit', edit_store_path(@store), class: 'btn btn-default' %> 
+		<h2>Store Info:</h2>
+		<h3><%= @store.store_description %></h3>
+		<!-- how to pull up cause name? -->
+		<%# @store.cause_name %>
 
-<!-- this link redirects to /stores/:store_id/products/new -->
-<%= link_to 'Create a product', new_store_product_path(@store.id), class: 'btn btn-default' %>
+		</br></br></br>
+
+		<%= link_to 'Edit', edit_store_path(@store), class: 'btn btn-default' %> |
+
+		<!-- this link redirects to /stores/:store_id/products/new -->
+		<%= link_to 'Create a product', new_store_product_path(@store.id), class: 'btn btn-default' %>
 
 
-</br><p>store id:<%= @store.id%></p>
-</div>
+		</br></br></br><p>store id:<%= @store.id%></p>
+		</div>
+
+		</div>
+	</div>
 

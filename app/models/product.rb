@@ -7,6 +7,16 @@ class Product < ActiveRecord::Base
 
   before_destroy :ensure_not_referenced_by_any_line_item
 
+  has_attached_file :picture, :styles => { :show => "800x400>", :medium => "300x300>", :thumb => "175x175>" }, :default_url => "/images/:style/missing.png"
+
+  # :storage => :s3,
+  # :s3_credentials => {:bucket => ENV['AWS_BUCKET'],
+  #                     :access_key_id     => ENV['AWS_ACCESS_KEY_ID'],
+  #                     :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']},
+  # :s3_protocol    => "https",
+  # :s3_host_name   => "s3-us-west-2.amazonaws.com"
+
+
   private
 
   # ensure that there are no line items referencing this product

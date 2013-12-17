@@ -17,7 +17,7 @@ before_action :set_customer, only: [:show, :edit, :update, :destroy]
 		@customer = Customer.new(params.require(:customer).permit(:customer_username, :customer_email, :customer_password, :password_confirmation))
 		
 		if @customer.save
-			redirect_to customers_url
+			redirect_to root_url
 		end
 	end
 

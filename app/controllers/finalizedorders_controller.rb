@@ -16,6 +16,7 @@ before_action :set_finalizedorder, only: [:show, :edit, :update, :destroy]
 
 	def index
 		@finalizedorders = Finalizedorder.all
+		@customer = current_customer_user
 	end
 
 

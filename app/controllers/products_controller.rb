@@ -50,6 +50,7 @@ class ProductsController < ApplicationController
     # logger.info params[:images][:direct_upload_url]
     store = Store.find(params[:store_id])
     @product = store.products.create(product_params)
+    @product.picture = params[:product][:picture] 
     # @image = @product.images.create!(image_params)
 
     respond_to do |format|
@@ -102,7 +103,7 @@ class ProductsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
       # params[:product]
-      params.require(:product).permit(:product_name, :product_description, :product_price, :store_id, :category_id)
+      params.require(:product).permit(:product_name, :product_description, :product_price, :picture, :store_id, :category_id)
     end
 
     # def image_params

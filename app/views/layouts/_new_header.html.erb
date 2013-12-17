@@ -13,8 +13,8 @@
   <!-- Collect the nav links, forms, and other content for toggling -->
 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav">
-      <!-- <li id="store_icon"><a href="/sellers/new"></a></li>
-      <li id="user_icon"><a href="/customers/new"></a></li> -->
+      <li><a href="/sellers/new"><span class="glyphicon glyphicon-home"></span></a></li>
+      <li><a href="/customers/new"><span class="glyphicon glyphicon-user"></span></a></li>
     </ul>
     <!-- <div class="navbar-form navbar-left form-inline">
       <div class="form-group">
@@ -23,31 +23,25 @@
     </div> -->
     
     <ul id="top-nav" class="nav navbar-nav navbar-right form-inline">
-      <!-- <li id="store_icon"><a href="/sellers/new"></a></li> -->
-      <!-- <li id="user_icon"><a href="/customers/new"></a></li> -->
-      <li><%= link_to "Create a Store", new_seller_path %></li>
-      
-      <li><%= link_to "User Sign Up", new_customer_path %></li>
+      <!-- <li id="store_icon"><a href="/sellers/new"><%# image_tag "store_icon.svg" %><%# link_to "Create a Store", new_seller_path %></a></li>
+      <li id="user_icon"><a href="/customers/new"><%# link_to "User Sign Up", new_customer_path %></li> -->
       <% if current_customer_user %>  
-          <!-- <li id="cart_icon"><a href="/"></a></li> -->
-          <li><%= link_to "Shopping Cart", customer_order_path %></li>
-          <li class="script_font"><%= current_customer_user.customer_email %></li>
-          <li><%= link_to "logout", "/authentications/_", method: "delete", class: "btn btn-default" %></li>          
+          <li><a href="/"><span id="cart_icon"></span></a></li>
+          <li id="current_user" class="script_font"><%= current_customer_user.customer_email %></li>
+          <li><%= link_to "logout", "/authentications/_", method: "delete", id: "logout_btn", class: "btn btn-default btn-xs" %></li>          
       <% else %>
           <li><%= render "authentications/customer_login" %></li>
       <% end %>  
      
       <!-- <li id="seller_icon" > -->
       <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Seller<b class="caret"></b></a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"><b class="caret"></b></span></a>
         <ul class="dropdown-menu">
           <li ><a href="/seller_authentications/new">Seller Login</a></li>
           <% if current_user %>
-          <li><a href="/sellers/<%=current_user.id %>/edit">Edit Seller Info</a></li>
-          <!-- <li><a href="#">Store Info</a></li> -->
-          <li><%= link_to "Store Info", my_store_path %></li>
-          <!-- <li><a href="#">Product Info</a></li> -->
-          <li><%= link_to "Store Products", products_sellers_index_path(current_user.store_id) %></li>
+          <li><a href="/customers/<%=current_user.id %>/edit">Edit Seller Info</a></li>
+          <li><a href="#">Store Info</a></li>
+          <li><a href="#">Product Info</a></li>
           <li class="divider"></li>
           <li><%= link_to "Seller Logout", "/seller_authentications/:id", method: "delete" %></li>
         </ul>
