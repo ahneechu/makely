@@ -1,13 +1,33 @@
 
 
-<h1><%= @customer.customer_username %> Your order has been confirmed! </h1>
-<h2>Your order will be shipped within in the next 7-10 days</h2>
+<h1><%= @customer.customer_username %> </h1>
+<h2>Press Confirm and your order will be shipped within in the next 7-10 days</h2>
 
-		<h4 class="font">Please check your seller info to ensure everything looks good!</h4>
+		<h4 class="font">Please check your info to ensure everything looks good!</h4>
+
+
+		<h2>Name:</h2>
+		<!-- <h3><%# @customer.customer_email %></h3> -->
+		<h3><%= @finalizedorder.customer_username %></h3>
 
 		<h2>Email:</h2>
-		<h3><%= @customer.customer_email %></h3>
+		<!-- <h3><%# @customer.customer_email %></h3> -->
+		<h3><%= @finalizedorder.customer_email %></h3>
 
 		<h2>Address:</h2>
-		<h3><%= @customer.customer_address %></h3>
+
+		<h3><%= @finalizedorder.customer_address %></h3>
+
+		<!-- <h2>Credit Card Number:</h2>
+
+		<h3><%# @finalizedorder.CC_number %></h3>
+
+		<h2>Credit Card Expiration Date:</h2>
+
+		<h3><%# @finalizedorder.CC_expiration_date %></h3> -->
+
+
+
 		</br></br></br>
+
+		<!-- @finalizedorder.customer_address -->

@@ -12,7 +12,9 @@
 		  <div class="col-xs-6 col-md-3">
 		    <div class="product_img">
 		    	<div class="border">
-		    	<%= image_tag @product.picture.url(:thumb) %>
+		    	<!-- The below image_tag is failing 12-17-13 12:15pm -->
+		    	<%# image_tag @product.picture.url(:thumb) %>
+		    	
 				<!-- <h4 class="font"><%# p.product_name %></h4></br>
 				<p class="font"><%# p.product_description %></p></br></br>
 				<span class="price"><%# number_to_currency(p.product_price) %></span></br> -->
