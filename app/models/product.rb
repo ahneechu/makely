@@ -7,6 +7,8 @@ class Product < ActiveRecord::Base
 
   before_destroy :ensure_not_referenced_by_any_line_item
 
+  has_attached_file :picture, :styles => { :show => "800x400>", :medium => "300x300>", :thumb => "175x175>" }, :default_url => "/images/:style/missing.png"
+
   private
 
   # ensure that there are no line items referencing this product

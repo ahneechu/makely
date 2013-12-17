@@ -1,6 +1,12 @@
 @import "bootstrap";
 /*@import url(http://fonts.googleapis.com/css?family=Alegreya+Sans+SC);*/
 @import url(http://fonts.googleapis.com/css?family=Alegreya+Sans+SC|Bad+Script|Paprika|Carrois+Gothic+SC|Architects+Daughter);
+@font-face {
+  font-family: 'A Beat by Kai';    
+  src: url(image-path('abeatbykaiRegular.otf'));
+  font-weight: normal;
+  font-style: normal;
+ }
 
 body{ 
 	padding-top: 70px; 
@@ -78,12 +84,12 @@ body{
 
 #cart_icon{
   display: block;
-  width: 40px;
-  height: 30px;
-  margin-top: -10px;
-  background: url(cart_icon.svg);
+  width: 30px;
+  height: 20px;
+  /*margin-top: -10px;*/
+  background: url(cart.png);
   /*background-color: red;*/
-  background-size: 40px 30px;
+  background-size: 30px 20px;
   color: gray;
 }
 
@@ -139,7 +145,7 @@ body{
 }
 
 .form_container{
-	width: 600px;
+	width: 75%;
 	height: 800px;
 	margin: 10px auto;
 	padding: 20px 10px 10px;
@@ -148,18 +154,18 @@ body{
 	/*background-color: #e7e7e7;*/
 	background-color: gray;
 		h1{
-			
-			font-family: 'Architects Daughter', cursive;
+			/*font-family: 'A Beat by Kai', Helvetica; */
+			font-family: Tahoma, Geneva, sans-serif;
 			color: white;
 			text-align: center;
 			padding-top: 20px;
-			padding-bottom: 10px;
+			/*padding-bottom: 10px;*/
 		}
 
 }
 
 .row{
-	font-family: 'Architects Daughter', cursive;
+	font-family: Tahoma, Geneva, sans-serif;
 	width: 75%;
 	/*background-color: #e7e7e7;*/
 	margin: 10px auto;
@@ -172,7 +178,7 @@ body{
 
 	}
 	h3{
-		font-family: 'Architects Daughter', cursive;
+		font-family: Tahoma, Geneva, sans-serif;
 		
 	}
 }
@@ -239,21 +245,55 @@ body{
 }
 
 .border{
+	position: relative;
 	font-family: 'Alegreya Sans SC', sans-serif;
+	/*width: 100%;
+	height: auto;*/
+	/*overflow: hidden;*/
 	width: 175px;
 	height: 175px;
 	margin-left: 12px;
 	margin-top: 10px;
-	background-color: #e7e7e7;
+	color: white;
+	background-color: #5F5E5D;
+	/*background-color: #e7e7e7;*/
 	border: 1px solid #c0c0c0;
 	border-radius: 3px;
-	padding: 10px;
 }
 
-.border:hover{
-			background-color: gray;
-			color: white;
-		}
+.prod_pic{
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+	-webkit-transition: all 300ms ease-out;  
+    -moz-transition: all 300ms ease-out;  
+    -o-transition: all 300ms ease-out;  
+    -ms-transition: all 300ms ease-out;  
+    transition: all 300ms ease-out;  
+	}
+
+.prod_pic:hover{
+	opacity: 0;
+}
+
+.caption{
+	opacity: 0;  
+	background-color: #5F5E5D;
+	color: white;
+	 z-index: 100;  
+	-webkit-transition: all 300ms ease-out;  
+    -moz-transition: all 300ms ease-out;  
+    -o-transition: all 300ms ease-out;  
+    -ms-transition: all 300ms ease-out;  
+    transition: all 300ms ease-out;  
+}
+
+.caption:hover{
+	opacity: 1;  
+
+}
 
 
 /*Product Page*/
@@ -266,26 +306,29 @@ body{
 }
 
 .product_show_img{
-	height: 400px;
-	margin: 20px auto;
-	padding: 10px 20px;
+	width: 100%;
+	height: auto;
+	/*height: 400px;*/
+	overflow: hidden;
+	/*margin: 20px auto;*/
+	/*padding: 10px 20px;*/
 	text-align: center;
 	/*border: 1px solid #ddd;*/
 	border: 4px solid #c0c0c0;
 	border-radius: 4px;
 	background-color: #5F5E5D;
+	img{
+		width: 100%;
+	}
 }
 
-.prod_show_border{
+/*.prod_show_border{
 	height: 370px;
-	margin-left: -5px;
-	/*margin-top: 10px;*/
-	padding: 10px;
-	/*background-color: #e7e7e7;*/
 	border: 4px solid #c0c0c0;
 	border-radius: 3px;
 	background-color: white;
-}
+
+}*/
 
 .product_thumbnails{
 	height: 150px;
