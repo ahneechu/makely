@@ -7,14 +7,17 @@
 		<!-- <li><%# item.product.product_name %></li> -->
 		<td><%= item.product.product_description %></td>
 		<td><span class="price">@<%= number_to_currency(item.product.product_price) %> (each) = </span></td>
-		<td><span class="total_price"><%= number_to_currency(item.total_price) %></span></td>
+
+		<!-- This should be working -->
+		<!-- <td><span class="total_price"><%# number_to_currency(item.total_price) %></span></td> -->
 		</br>
 	</tr>
 	
 </table>
 <% end %>
 </br>
-Your Order Total = <%= number_to_currency(@order.total_price) %>
+<!-- This should be working -->
+Your Order Total = <%# number_to_currency(@order.total_price) %>
 </br>
 </br>
 </br>

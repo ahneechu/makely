@@ -28,6 +28,9 @@ class StoresController < ApplicationController
 	def create
 		@store = Store.new(store_params)
 		
+		@store.sellers << current_user
+		# current_user.store_id = @store.find(params[:id])
+		# .save?
 
 		# if @store.save
 		# 	flash[:notice] = "Store created!"
@@ -35,6 +38,7 @@ class StoresController < ApplicationController
 		# end
 
 		respond_to do |format|
+
 	      if @store.save
 	        format.html { redirect_to @store, notice: 'Store was successfully created.' }
 	        format.json { render action: 'show', status: :created, location: @store }

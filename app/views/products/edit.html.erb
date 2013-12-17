@@ -4,12 +4,3 @@
 
 
 
-<h3 id="drag-here">Drag all photos here</h3>
-<%= s3_uploader_form callback_url: images_url, id: "s3-uploader", callback_param: "image[direct_upload_url]", expiration: 24.hours.from_now.utc.iso8601, max_file_size: 5.megabytes do %>
-<%= hidden_field_tag  "Content-type", "" %>
-<%= file_field_tag :file, multiple: true %>
-<% end %>
-<div id="uploads_container"></div>
-
-<%= link_to 'Show', store_product_path %> |
-<%= link_to 'Back', store_products_path %>

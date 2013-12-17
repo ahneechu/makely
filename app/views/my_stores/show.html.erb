@@ -1,0 +1,28 @@
+
+<h2> <%= @store.store_name %></h2>
+<h3>Store Description</h3></br>
+<h4> <%= @store.store_description %></h4>   </br>
+<!-- how to pull up cause name? -->
+<%# @store.cause_name %></br>
+
+<%= link_to 'Edit', edit_store_path(@store), class: 'btn btn-default' %> 
+
+<!-- this link redirects to /stores/:store_id/products/new -->
+<%= link_to 'Create a product', new_store_product_path(@store.id), class: 'btn btn-default' %>
+
+
+</br><p>store id:<%= @store.id%></p>
+</div>
+
+
+
+<%# @store.products.each do |x| %>
+
+	<%# x.product_name %>
+
+	<%# end %>
+
+
+	<%# link_to "my store", my_store_path %>
+
+

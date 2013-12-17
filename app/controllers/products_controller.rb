@@ -1,7 +1,8 @@
 class ProductsController < ApplicationController
   include CurrentOrder
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-  before_action :set_order, only: [:edit, :update, :destroy]
+  # before_action :set_order, only: [:edit, :update, :destroy]
+  before_action :set_order, only: [:update]
 
   # GET /store/:store_id/products
   # GET /store/:store_id/products.json
@@ -33,6 +34,15 @@ class ProductsController < ApplicationController
   # GET /store/:store_id/products/1/edit
   def edit
   end
+
+  def sellers_index
+    # @sellers = Seller.all
+    # @store = Store.find(params[:store_id])
+    # @store = current_user.store_id
+    @store = current_user.store
+    @products = @store.products
+    # @product = @store.products.find(params[:id])
+  end 
 
   # POST /store/:store_id/products
   # POST /store/:store_id/products.json

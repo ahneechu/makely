@@ -25,6 +25,13 @@ Makely::Application.routes.draw do
   # root 'static_pages#home'
   root 'products#all_products'
 
+  # resource :my_store
+
+  resource :my_store do
+    resources :products 
+  end
+
+get '/products/sellers_index' => 'products#sellers_index'
 
 
   # Example of regular route:
