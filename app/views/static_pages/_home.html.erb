@@ -28,7 +28,7 @@
 </nav>
 
 <script>
-var initTopPosition= $('#myElementToStick').offset().top;   
+var initTopPosition= $('#myElementToStick').offset().top;
 $(window).scroll(function(){
     if($(window).scrollTop() > initTopPosition - 60)
         $('#myElementToStick').css({'position':'fixed','top':'60px', 'width':'110%'});
@@ -36,19 +36,6 @@ $(window).scroll(function(){
         $('#myElementToStick').css({'position':'absolute','top':initTopPosition+'px'});
 });
 
-// $(document).ready(function() {  
-//   $(window).scroll(function(e){ 
-//     $el = $('.fixedElement'); 
-//     if ($(this).scrollTop() > 200 && $el.css('position') != 'fixed'){
-//       $('.fixedElement').css({'position': 'fixed', 'top': '60px'}); 
-//     }
-//     else { 
-//       $('.fixedElement').css({'position': 'absolute', 'top': '450px'}); 
-//     }
-
-//   });
-// });
 </script>
-
 	
 
