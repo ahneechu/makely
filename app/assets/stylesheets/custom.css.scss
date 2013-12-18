@@ -93,10 +93,11 @@ body{
 /*homepage*/
 
 .jumbotron{
-  background-image: url(image-path('unsplash.jpg'));
+  /*background-image: url(image-path('unsplash.jpg'));*/
+  background-image: url(image-path('mwl_1.png'));
   background-size: cover;
   background-repeat: no-repeat;
-  height: 450px;
+  height: 650px;
   margin: -70px -40px -20px;
   padding: 0 auto;
 }

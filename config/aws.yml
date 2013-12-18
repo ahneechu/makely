@@ -4,11 +4,11 @@ defaults: &defaults
   secret_access_key: <%=ENV["AWS_SECRET_ACCESS_KEY"]%>
 development:
   <<: *defaults
-  bucket: "makely-development-nws"
+  bucket: "makely-development"
 test:
   <<: *defaults
-  bucket: "makely-test-nws"
+  bucket: "makely-test"
 production:
   access_key_id: <%=ENV["AWS_ACCESS_KEY_ID"]%>
   secret_access_key: <%=ENV["AWS_SECRET_ACCESS_KEY"]%>
-  bucket: "makely-nws"
+  bucket: "makely"
