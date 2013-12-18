@@ -7,17 +7,12 @@
 	<div class="col-xs-12 col-md-8">
 		<!-- PRODUCT IMAGE -->
 	    <div class="product_show_img">
-	    	<!-- <div class="prod_show_border"> -->
-		    	<!-- <h2 class="font">Product Image</h2> -->
-		    		<%= image_tag @product.picture.url(:show) %>
-		    		<%# image_tag @image.url %>
-		    		<%# @product.images.each do |i| %>
-			    	<%# image_tag i.url %>
-			    	<%#end%>
-		    <!-- </div> -->
+	    	<div class="prod_show_border">
+		    	<%= image_tag @product.picture.url(:show) %>
+		    </div>
 		</div>
 
-		<!-- PRODUCT THUMBNAILS -->
+		<!-- PRODUCT THUMBNAILS
 		<div class="product_thumbnails">
 				<div class="prod_thumb">
 		    		<div class="prod_border">
@@ -26,20 +21,20 @@
 		    	</div>
 		    	<div class="prod_thumb">
 		    		<div class="prod_border">
-		    		<p class="font">product image</p>
+		    			<p class="font">product image</p>
 		    		</div>
 		    	</div>
 		    	<div class="prod_thumb">
 		    		<div class="prod_border">
-		    		<p class="font">product image</p>
+		    			<p class="font">product image</p>
 		    		</div>
 		    	</div>
 		    	<div class="prod_thumb">
 		    		<div class="prod_border">
-		    		<p class="font">product image</p>
+		    			<p class="font">product image</p>
 		    		</div>
 		    	</div>
-		</div>
+		</div> -->
 
 		<!-- PRODUCT INFO -->
 		<div class="product_info">
@@ -101,8 +96,13 @@
 				<% @store.products.each do |p| %>
 				<div class="store_prod_border">
 					<div class="prod_thumb r">
-			    		<div class="prod_border">
+			    		<div class="prod_border">	
+			    			<span class="sm_prod_pic">
+					    	<%= link_to(image_tag(p.picture.url(:sm_thumb)), store_product_path(p.store.id, p.id)) %>
+					    	</span>
+					    	<span class="caption">
 			    			<p class="font"><%= p.product_name %></p></br>
+			    			</span>
 			    		</div>
 		    		</div>
 		    	 <% end %>
