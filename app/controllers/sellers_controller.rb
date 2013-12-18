@@ -28,9 +28,16 @@ class SellersController < ApplicationController
   	# POST /sellers.json	
 	def create
 		@seller = Seller.new(seller_params)
-
+		@seller.save
+		# @customer = Customer.new(params.require(:customer).permit(:customer_username, :customer_email, :customer_password, :password_confirmation))
+		# @customer.save
+		seller = Seller.find_by(email: params[:seller][:email])
+		
 		respond_to do |format|
-	      if @seller.save
+	      # if @seller.save
+	      if seller.authenticate(params[:seller][:password])  
+			session[:user_id] = seller.id
+
 	        format.html { redirect_to @seller, notice: 'Seller was successfully created.' }
 	        format.json { render action: 'show', status: :created, location: @seller }
 	      else
