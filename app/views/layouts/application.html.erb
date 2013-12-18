@@ -22,19 +22,9 @@
       
 <%= yield %>
 
-   <br/>
-    Customer id: <%= current_customer_user.id if current_customer_user %>
-    <br/>
-    Customer Email: <%= current_customer_user.customer_email if current_customer_user%>
-    <br/>
-	 <br/>
-    Seller id: <%= current_user.id if current_user %>
-    <br/>
-    Seller Email: <%= current_user.email if current_user %>
-    <br/>
-
-
 </div>
+
+<%= render 'layouts/footer' %>
 
   </body>
 </html>

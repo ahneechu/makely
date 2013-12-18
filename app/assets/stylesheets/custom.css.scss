@@ -90,6 +90,13 @@ body{
 	z-index: 999;
 }
 
+/*footer*/
+#footer{
+	border-top: 10px solid #9A7E8C;
+	background-color: #e7e7e7;
+	padding: 10px;
+}
+
 /*homepage*/
 
 .jumbotron{
@@ -278,7 +285,8 @@ body{
 
 /*Product Page*/
 .product_container{
-	width: 1250px;
+	/*width: 1250px;*/
+	width: 100%;
 	margin: 0 auto;
 	padding: 20px;
 	height: 1500px;
@@ -291,7 +299,7 @@ body{
 	height: 480px;
 	overflow: hidden;
 	margin: 20px auto;
-	padding: 10px 20px;
+	padding: 20px 20px 10px;
 	text-align: center;
 	border: 1px solid #ddd;
 	border: 4px solid #c0c0c0;
@@ -314,7 +322,7 @@ body{
 	background-color: white;
 	img{
 		width: 100%;
-		height: 440px;
+		height: 430px;
 	}
 
 }
@@ -341,6 +349,8 @@ body{
 	border: 1px solid #ddd;
 	border-radius: 4px;
 }
+
+
 
 .prod_border{
 	position: relative;
@@ -486,8 +496,8 @@ body{
 }
 
 .r{
-	margin-top: 10px;
-	margin-left: 40px;
+	margin-top: 20px;
+	margin-left: 30px;
 
 }
 
