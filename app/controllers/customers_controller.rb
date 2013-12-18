@@ -15,10 +15,23 @@ before_action :set_customer, only: [:show, :edit, :update, :destroy]
 
 	def create
 		@customer = Customer.new(params.require(:customer).permit(:customer_username, :customer_email, :customer_password, :password_confirmation))
+		@customer.save
+		customer = Customer.find_by(customer_email: params[:customer][:customer_email])
 		
-		if @customer.save
-			redirect_to root_url
-		end
+		
+			if customer.authenticate(params[:customer][:customer_password])  
+			session[:customer_user_id] = customer.id
+        		redirect_to root_url
+        	end
+  		
+  			# customer = Customer.find_by(email: params[:customer][:customer_email])
+  			# if customer.authenticate(params[:customer][:customer_password]) 
+			# if customer.authenticate(params[:customer_username][:customer_password])
+   #      		session[:customer_user_id] = current_customer_user.id
+
+		# if @customer.save
+		# 	redirect_to root_url
+		# end
 	end
 
 		def edit
