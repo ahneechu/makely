@@ -33,6 +33,7 @@ Makely::Application.routes.draw do
 
 get '/products/sellers_index' => 'products#sellers_index'
 
+get '/customers/:customer_id/orders/:id' => 'orders#show'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

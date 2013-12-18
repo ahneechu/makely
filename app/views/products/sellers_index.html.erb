@@ -25,7 +25,7 @@
 
           <td><%= link_to 'Show', [product.store, product] %></td>
           <td><%= link_to 'Edit', edit_store_product_path(product.store, product) %></td>
-          <td><%= link_to 'Destroy', [product.store, product], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Delete', [product.store, product], method: :delete, data: { confirm: 'Are you sure?' } %></td>
 
       </tr>
     <% end %>

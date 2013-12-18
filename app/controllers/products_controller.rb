@@ -84,9 +84,12 @@ class ProductsController < ApplicationController
   # DELETE /store/:store_id/products/1
   # DELETE /store/:store_id/products/1.json
   def destroy
+    # @store = Store.find(params[:store_id])
+    # @store.products.find(params[:id]).destroy
     @product.destroy
     respond_to do |format|
-      format.html { redirect_to store_products_url }
+      # format.html { redirect_to store_products_url }
+      format.html { redirect_to products_sellers_index_url }
       format.json { head :no_content }
     end
   end

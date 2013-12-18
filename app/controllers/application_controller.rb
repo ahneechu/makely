@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
 
 
 
-
   	def current_user
 		if session[:user_id]
 			@current_user ||= Seller.find_by(id: session[:user_id])

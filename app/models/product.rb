@@ -5,7 +5,7 @@ class Product < ActiveRecord::Base
 
   has_many :line_items
 
-  before_destroy :ensure_not_referenced_by_any_line_item
+  # before_destroy :ensure_not_referenced_by_any_line_item
 
   has_attached_file :picture, :styles => { :show => "800x400>", :medium => "300x300>", :thumb => "175x175>", :sm_thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
 

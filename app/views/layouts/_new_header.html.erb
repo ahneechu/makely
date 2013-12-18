@@ -20,7 +20,21 @@
     <ul id="top-nav" class="nav navbar-nav navbar-right form-inline">
       
       <% if current_customer_user %>  
-          <li><a href="/"><i class="glyphicon glyphicon-shopping-cart" rel="tooltip" data-toggle="tooltip" title="Shopping Cart" ></i></a></li>
+          <!-- <li><a href="/"><i class="glyphicon glyphicon-shopping-cart" rel="tooltip" data-toggle="tooltip" title="Shopping Cart" ></i></a></li> -->
+
+       <!--  <li><%# link_to 'Shopping Cart', customer_order_path(order.customer, order) %><i class="glyphicon glyphicon-shopping-cart" rel="tooltip" data-toggle="tooltip" title="Shopping Cart" ></i></a></li>  -->
+
+       <li><a href="/customers/<%=current_customer_user.id%>/orders/<%= current_customer_user.current_order.id %>"><i class="glyphicon glyphicon-shopping-cart" rel="tooltip" data-toggle="tooltip" title="Shopping Cart" ></i></a></li>
+            
+
+
+        <%# if current_customer_user.current_order %>
+       <!-- <li><%# link_to 'cart', customer_order_path(current_customer_user, current_customer_user.current_order) %><i class="glyphicon glyphicon-shopping-cart" rel="tooltip" data-toggle="tooltip" title="Shopping Cart" ></i></a></li> -->
+       <%# end %>
+
+
+        <!--  <li><%# link_to 'Order Show', controller: "orders", action: "show", id: current_user.id %><i class="glyphicon glyphicon-shopping-cart" rel="tooltip" data-toggle="tooltip" title="Shopping Cart" ></i></a></li> -->
+
           <li id="current_user" class="lowercase_font"><%= current_customer_user.customer_email %></li>
           <li><%= link_to "logout", "/authentications/_", method: "delete", id: "logout_btn", class: "btn btn-default btn-xs" %></li>          
       <% else %>

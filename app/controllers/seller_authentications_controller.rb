@@ -26,7 +26,7 @@ class SellerAuthenticationsController < ApplicationController
 			#authenticate seller and then redirect them to user profile page
 			if seller.authenticate(params[:seller][:password])
 				session[:user_id] = seller.id
-				redirect_to seller
+				redirect_to products_sellers_index_path(current_user.store_id)
 			end
 		else
 			# flash.now[:error] = "Unable to sign you in."
