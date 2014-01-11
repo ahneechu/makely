@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.1'
+ruby "2.0.0"
 
 # Use postgresql as the database for Active Record
 gem 'pg'
@@ -43,6 +44,11 @@ group :development, :test do
      gem 'capybara'
      gem 'selenium-webdriver'
      gem 'database_cleaner'
+end
+
+group :production do
+	gem 'rails_12factor'
+	gem 'thin'
 end
 
 
